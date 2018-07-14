@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    
+<head>
+    <title>NameTBD Add Issue</title>
+</head>
+    
+<body>
+    <h1>Add Issue</h1>
+    
+    <form action="./NameTBD_Issues_List.html">
+        <p><label><strong>Issue Title</strong></label></p>
+        <p><input type="text" name="title" value="Title"></p>
+        <p><label><strong>Issue Type</strong></label></p>
+        <p><input type="text" name="type" value="N/A"></p>
+        <p><label><strong>Issue Description</strong></label></p>
+        <p><textarea rows=10 cols=80 name="description"></textarea></p>
+        <p>
+            <label><strong>Issue Priority: </strong></label>
+            Low 
+            <input type="range" min="0" max="2" value="1" step="1" name="priority"> 
+            High   
+        </p>
+        <p><label><strong>Issue Attachment</strong></label></p>
+        <p><input type="file"></p>
+        <p><input type="submit" value="Submit Issue"><input type="reset"></p>
+        <button type="button" onclick="alert('If you have any questions about adding issues, please send a email to inform us.')">Help</button>    
+    </form>
+    
+</body>
+    
+</html>

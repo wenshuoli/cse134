@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="en-US">
+    
 <head>
     <title>NameTBD Login</title>
+    <style> 
+        h1 {color:red;}
+    </style>
 </head>
+    
 <body>
+    
     <h1>---------- Welcome to NameTBD -----------</h1>
     <h3>------------------- NameTBD is an issue tracker --------------</h3>
 
-    <form action="./NameTBD_Issues_List.html"> 
-        Username or email address<div>
-        <input type="text" name="username" value="userid"><div>
-        Password <a href="#">Forgot password?</a><div>
-        <input type="password" name="password" value=""><div>
-        <br>
-        <input type="submit" value="Sign in">
+    <form action="./NameTBD_Issues_List.html">
+        <p><label>Username or email address</label></p>
+        <p><input type="text" name="username" value="userid"></p>
+        <p><label>Password </label><a href="#">Forgot password?</a></p>
+        <p><input type="password" name="password" value=""></p>
+        <p><input type="submit" value="Sign in"></p>
     </form>
 
     <p>New to NameTBD? <a href="#">Create an account</a>.</p>
+    
+    <canvas id="myCanvas">This is my canvas.</canvas>
+    <script>
+        var a = document.getElementById("myCanvas");
+        var b = a.getContext("2d");
+        b.fillStyle = "#00FFFF";
+        b.fillRect(0, 0, 250, 150);
+    </script>
+    
+    <details>
+        <summary><strong>About this page</strong></summary>
+        <p>This is our homework 2 of CSE134B</p>
+    </details>
+        
 </body>
+    
 </html>
