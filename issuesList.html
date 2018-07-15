@@ -3,6 +3,7 @@
     <head>
     <meta charset="UTF-8">
     <title>Issue List Page</title>
+    <base href="https://www.example.com/news/index.html">
     </head>
     <body>
         <div>
@@ -17,6 +18,20 @@
                 </ul>
             </nav>
         </div>
+        <div>
+                <form>
+                    <p>Which song would you like to play today while you are viewing your issues?
+                    <p><label>Songs:
+                    <select name="c">
+                        <optgroup label="1 Sample Music">
+                        <option value="1.1">Music 1                      
+                        <option value="1.2">Music 2  
+                        <option value="1.3">Music 3   
+                    </select>
+                    </label>
+                    <p><input type=submit value="▶ Play">
+                </form>
+            </div>
         <div>
             <h2>Issue table page</h2>
             <table id="issue_table">
