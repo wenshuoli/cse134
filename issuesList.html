@@ -1,3 +1,8 @@
+<!-- This page includes the following elements: html, head, p, div, optgroup, base, 
+del, ins, aside, span, bdo, bdi, mark, sup, sub, kbd, samp, var, data, q, pre, s,
+cite, em, figure, figcaption, code, dt, dd, dl, a, progress, meter, nav, ul, ol, li
+small, table, caption, tbody, colgroup, col, tfoot, tr, td, th, fieldset, option, 
+dataist, legend-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,7 +13,7 @@
     <body>
         <div>
             <nav>
-                <h3>Navigation</h3>
+                <h4>Navigation</h4>
                 <ul>
                     <li><a href="#">Login</a></li>
                     <li><a href="#">About Us</a></li>
@@ -45,11 +50,11 @@
                 </colgroup>
                 <thead>
                 <tr>
-                    <th> Issue Name
-                    <th> Created Time
-                    <th> Completed
-                    <th> Pregress
-                    <th> Details
+                    <th > Issue Name
+                    <th > Created Time
+                    <th > Completed
+                    <th > Progress
+                    <th colspan=1> Details
                 <tbody>
                 <tr>
                     <td id="r1_name"> User Story
@@ -58,7 +63,7 @@
                     <td>
                         <p>Progress: <progress id="r1_progress" max=100><span>0</span>%</progress></p>
                     </td>
-                    <td id="r1_des"> N/A
+                    <td id="r1_des" colspan=1> N/A
                 <tr>
                     <td id="r2_name"> Work Flow Diagram
                     <td id="r2_time"> <time>2018-07-03</time>
@@ -66,7 +71,7 @@
                     <td>
                         <p>Progress: <progress id="r2_progress" max=100 value=60><span>0</span>%</progress></p>
                     </td>
-                    <td id="r2_des"> N/A
+                    <td id="r2_des" colspan=1> N/A
 
                 <tr>
                     <td id="r3_name"> UI sample screen
@@ -75,7 +80,7 @@
                     <td>
                         <p>Progress: <progress id="r3_progress" max=100 value=40><span>0</span>%</progress></p>
                     </td>
-                    <td id="r3_des"> N/A
+                    <td id="r3_des" colspan=1> N/A
                 <tr>
                     <td id="r4_name"> Unit Test
                     <td id="r4_time"> <time>2018-07-08</time>
@@ -83,7 +88,7 @@
                     <td>
                         <p>Progress: <progress id="r4_progress" max=100 value=20><span>0</span>%</progress></p>
                     </td>
-                    <td id="r4_des"> N/A
+                    <td id="r4_des" colspan=1> N/A
                 <tr>
                     <td id="r5_name"> User Accecptamce Test
                     <td id="r5_time"> <time>2018-07-10</time>
@@ -91,7 +96,7 @@
                     <td>
                         <p>Progress: <progress id="r5_progress" max=100 value=0><span>0</span>%</progress></p>
                     </td>
-                    <td id="r5_des"> N/A
+                    <td id="r5_des" colspan=1> N/A
                 <tr>
                     <td id="r6_name"> The unknown <var>x<sub><var>j</var></sub><sup><var>i</var></sup></var> problem
                     <td id="r6_time"> <time>2018-07-14</time>
@@ -99,7 +104,7 @@
                     <td>
                         <p>Progress: <progress id="r6_progress" max=100 value=100><span>0</span>%</progress></p>
                     </td>
-                    <td id="r6_des"> N/A
+                    <td id="r6_des" colspan=1> N/A
                 <tfoot>
                     <tr>
                         <td colspan="5"><small>Owned by team <s>TBD</s> LLL</small></td>
@@ -109,7 +114,7 @@
         </div>
         <div> 
             <p> This is a overall progress meter!</p>
-            <meter value=2 max=5> </meter>
+            <meter value=2 min=0 max=5> </meter>
         </div>
         <div>
             <p> Now we have <data id="finished_val" value=1>2</data> issue(s) <em>completed</em> (<data id="unfinished_val" value=1>6</data> issue(s) in <em>total</em>)</p>
@@ -120,7 +125,7 @@
             </ol>     
         </div>
         <div>
-            <h4>Description of the finised tasks</h4>
+            <h5>Description of the finised tasks</h5>
             <dl>
                 <dt>User Story</dt>
                 <dd>a tool used in Agile software development to capture a description of a software
@@ -152,7 +157,6 @@
             </figure>
         </div>
         <div>
-            
             <aside>
                 <ins datetime="2018-07-14">
                 <p> Modified by Zifeng Li. </p>
