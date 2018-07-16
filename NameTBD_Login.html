@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
     
 <head>
+    <meta charset="UTF-8">
     <title>NameTBD Login</title>
     <style> 
         h1 {color:red;}
@@ -9,10 +10,11 @@
 </head>
     
 <body>
+    <main>
+        <h1>---------- Welcome to NameTBD -----------</h1>
+        <h3>------------------- NameTBD is an issue tracker --------------</h3>
+    </main>
     
-    <h1>---------- Welcome to NameTBD -----------</h1>
-    <h3>------------------- NameTBD is an issue tracker --------------</h3>
-
     <form action="./NameTBD_Issues_List.html">
         <p><label>Username or email address</label></p>
         <p><input type="text" name="username" value="userid"></p>
@@ -20,16 +22,19 @@
         <p><input type="password" name="password" value=""></p>
         <p><input type="submit" value="Sign in"></p>
     </form>
-
+    
     <p>New to NameTBD? <a href="#">Create an account</a>.</p>
     
-    <canvas id="myCanvas">This is my canvas.</canvas>
-    <script>
-        var a = document.getElementById("myCanvas");
-        var b = a.getContext("2d");
-        b.fillStyle = "#00FFFF";
-        b.fillRect(0, 0, 250, 150);
-    </script>
+    <section>
+        <h6>This is a cool canvas</h6>
+        <canvas id="myCanvas">This is my canvas.</canvas>
+        <script>
+            var a = document.getElementById("myCanvas");
+            var b = a.getContext("2d");
+            b.fillStyle = "#00FFFF";
+            b.fillRect(0, 0, 250, 150);
+        </script>
+    </section>
     
     <details>
         <summary><strong>About this page</strong></summary>
