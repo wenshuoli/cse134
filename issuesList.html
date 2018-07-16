@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Issue List Page</title>
+    <base href="https://www.example.com/news/index.html">
+    </head>
+    <body>
+        <div>
+            <nav>
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Issues List</a></li>
+                    <li><a href="#">Add Issue</a></li>
+                    <li><a href="#">Issue Details</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div>
+                <form>
+                    <p>Which song would you like to play today while you are viewing your issues?
+                    <p><label>Songs:
+                    <select name="c">
+                        <optgroup label="1 Sample Music">
+                        <option value="1.1">Music 1                      
+                        <option value="1.2">Music 2  
+                        <option value="1.3">Music 3   
+                    </select>
+                    </label>
+                    <p><input type=submit value="▶ Play">
+                </form>
+            </div>
+        <div>
+            <h2>Issue table page</h2>
+            <table id="issue_table">
+                <caption><q>Cool</q> Issues Table</caption>
+                <colgroup>
+                    <col span="1" style="background-color: #bbe9f1;">
+                    <col>
+                    <col span="1" style="background-color: #bbe9f1;">
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th> Issue Name
+                    <th> Created Time
+                    <th> Completed
+                    <th> Pregress
+                    <th> Details
+                <tbody>
+                <tr>
+                    <td id="r1_name"> User Story
+                    <td id="r1_time"> <time>2018-07-01</time>
+                    <td id="r1_comp"> Yes
+                    <td>
+                        <p>Progress: <progress id="r1_progress" max=100><span>0</span>%</progress></p>
+                    </td>
+                    <td id="r1_des"> N/A
+                <tr>
+                    <td id="r2_name"> Work Flow Diagram
+                    <td id="r2_time"> <time>2018-07-03</time>
+                    <td id="r2_comp"> No
+                    <td>
+                        <p>Progress: <progress id="r2_progress" max=100 value=60><span>0</span>%</progress></p>
+                    </td>
+                    <td id="r2_des"> N/A
+
+                <tr>
+                    <td id="r3_name"> UI sample screen
+                    <td id="r3_time"> <time>2018-07-06</time>
+                    <td id="r3_comp"> No
+                    <td>
+                        <p>Progress: <progress id="r3_progress" max=100 value=40><span>0</span>%</progress></p>
+                    </td>
+                    <td id="r3_des"> N/A
+                <tr>
+                    <td id="r4_name"> Unit Test
+                    <td id="r4_time"> <time>2018-07-08</time>
+                    <td id="r4_comp"> No
+                    <td>
+                        <p>Progress: <progress id="r4_progress" max=100 value=20><span>0</span>%</progress></p>
+                    </td>
+                    <td id="r4_des"> N/A
+                <tr>
+                    <td id="r5_name"> User Accecptamce Test
+                    <td id="r5_time"> <time>2018-07-10</time>
+                    <td id="r5_comp"> No
+                    <td>
+                        <p>Progress: <progress id="r5_progress" max=100 value=0><span>0</span>%</progress></p>
+                    </td>
+                    <td id="r5_des"> N/A
+                <tr>
+                    <td id="r6_name"> The unknown <var>x<sub><var>j</var></sub><sup><var>i</var></sup></var> problem
+                    <td id="r6_time"> <time>2018-07-14</time>
+                    <td id="r6_comp"> yes
+                    <td>
+                        <p>Progress: <progress id="r6_progress" max=100 value=100><span>0</span>%</progress></p>
+                    </td>
+                    <td id="r6_des"> N/A
+                <tfoot>
+                    <tr>
+                        <td colspan="5"><small>Owned by team <s>TBD</s> LLL</small></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div> 
+            <p> This is a overall progress meter!</p>
+            <meter value=2 max=5> </meter>
+        </div>
+        <div>
+            <p> Now we have <data id="finished_val" value=1>2</data> issue(s) <em>completed</em> (<data id="unfinished_val" value=1>6</data> issue(s) in <em>total</em>)</p>
+            <ol id="completed_list">
+                <li><bdi>User Sotry</bdi>
+                <li><bdi>The unknown <var>x<sub><var>j</var></sub><sup><var>i</var></sup></var> problem </bdi>
+                <li><del datetime="2018-07-14">Deleted issue</del></li>
+            </ol>     
+        </div>
+        <div>
+            <h4>Description of the finised tasks</h4>
+            <dl>
+                <dt>User Story</dt>
+                <dd>a tool used in Agile software development to capture a description of a software
+                    feature from an end-user perspective.<cite> From Wikipeida </cite> </dd>
+                <dt>The unknown <var>x<sub><var>j</var></sub><sup><var>i</var></sup></var> problem</dt>
+                <dd>A <samp><mark>ridiculous</mark></samp> made-up question </dd>
+            </dl>
+        </div>
+        <br>
+        <br>
+        
+        <div>
+            <fieldset>
+                    <legend>Display</legend>
+                    <p><label><input type=radio name=c value=0> Show Details</label>
+                    <p><label><input type=radio name=c value=1 Checked> Hide Details</label>                        
+                    <p><label>Change Text Size <input type=range name=e list=text min=0 max=100 value=50 step=1></label>
+                    <datalist id=text>
+                        <option label=Normal value=0>
+                        <option label=Maximum value=100>
+                    </datalist>
+            </fieldset>
+        </div>
+        <div>
+            <p> A inner look of the display box above </p>
+            <figure>
+                <figcaption>The code for the attribut of the change text size slide is: </figcaption>
+                <pre><code> <span class="code">type=range name=e list=text min=0 max=100 value=50 step=1</span></code></pre>
+            </figure>
+        </div>
+        <div>
+            
+            <aside>
+                <ins datetime="2018-07-14">
+                <p> Modified by Zifeng Li. </p>
+                </ins>
+                <ins datetime="2018-07-14">
+                And this page is <em>Awesome</em>.
+                </ins>
+            </aside>
+            <bdo dir="rtl">
+                Secret tips: To close up this page please push <kbd><kbd>Ctrl</kbd>+<kbd>w</kbd></kbd>
+            </bdo>
+        </div>
+        
+    </body>
+</html>
