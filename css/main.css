@@ -163,6 +163,8 @@ blockquote {
 
 #login-logo{
     margin-bottom: 4rem;
+    width: 40px;
+    height: 40px;
 }
 
 .login-bg{
@@ -193,6 +195,7 @@ blockquote {
 
 .longForm{
     width: 80%;
+<<<<<<< HEAD
 }
 
 /*Mobil layout*/
@@ -211,4 +214,25 @@ blockquote {
         visibility: hidden;
     }
 
+=======
+    width: 400px;
+    height: 38px;
+    border-radius: 4px;
+    border: solid 1px #cccccc; 
+}
+
+.primaryButton{
+    width: 160px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: #5680e9;
+}
+
+.normalButton{
+    width: 160px;
+    height: 48px;
+    float: right;
+    border-radius: 8px;
+    border: solid 1px #999999;
+>>>>>>> ad49d17f54cfe75f9edd491bf2abfcc41ac77f3a
 }
