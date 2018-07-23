@@ -182,26 +182,35 @@ blockquote {
 .v8{
     margin-bottom: 8px;
 }
-.v48{
-    margin-bottom: 48px;
+v16{
+    margin-bottom: 16px;
 }
 .v24{
     margin-bottom: 24px;
 }
+.v32{
+    margin-bottom: 32px;
+}
 .v40{
     margin-bottom: 40px;
+}
+.v48{
+    margin-bottom: 48px;
+}
+.v56{
+    margin-bottom: 56px;
+}
+.v64{
+    margin-bottom: 64px;
+}
+.v72{
+    margin-bottom: 72px;
 }
 .v80{
     margin-bottom: 80px;
 }
 
-.v72{
-    margin-bottom: 72px;
-}
 
-.v32{
-    margin-bottom: 32px;
-}
 
 .gray{
     color: #999999;
