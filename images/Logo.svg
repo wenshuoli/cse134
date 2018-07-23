@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="-2.22044605e-14%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#5680E9" offset="0%"></stop>
+            <stop stop-color="#5AB9EA" offset="36.1000723%"></stop>
+            <stop stop-color="#5AB9EA" offset="66.5146315%"></stop>
+            <stop stop-color="#8860D0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-2.22044605e-14%" y1="50%" x2="100%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#5680E9" offset="0%"></stop>
+            <stop stop-color="#84CEEB" offset="39.5479588%"></stop>
+            <stop stop-color="#C1C8E4" offset="68.9735368%"></stop>
+            <stop stop-color="#8860D0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval-2" fill="#000000" cx="32" cy="32" r="32"></circle>
+        <path d="M8,48.138831 C8.52105542,33.3419005 11.1877221,25.3419005 16,24.138831 C23.2184169,22.3342268 32.7694975,38.6927305 40,40.138831 C44.820335,41.102898 50.1536683,38.4362313 56,32.138831" id="Path-2" stroke="url(#linearGradient-1)" stroke-width="4" stroke-linecap="round" transform="translate(32.000000, 36.069415) scale(1, -1) translate(-32.000000, -36.069415) "></path>
+        <path d="M8,40 C8.52105542,25.2030695 11.1877221,17.2030695 16,16 C23.2184169,14.1953958 32.7694975,30.6938989 40,32.1399994 C44.820335,33.1040664 50.1536683,30.4370103 56,24.138831" id="Path-2" stroke="url(#linearGradient-2)" stroke-width="4" stroke-linecap="round" transform="translate(32.000000, 27.931132) scale(-1, 1) translate(-32.000000, -27.931132) "></path>
+    </g>
+</svg>

@@ -1,38 +1,40 @@
 <!-- This page includes the following elements: html, head, meta, title, style, 
      body, main, h1, h3, form, p, label, input, a, section, h6, canvas, script,
-     details, summary, strong  --> 
+     details, summary, strong  -->
 
 
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
     <meta charset="UTF-8">
     <title>NameTBD Login</title>
-    <style> 
-        h1 {color:red;}
+    <style>
+        h1 {
+            color: red;
+        }
     </style>
 </head>
-    
+
 <body>
     <div>
-            <nav>
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="./login.html">Login</a></li>
-                    <li><a href="./about.html">About Us</a></li>
-                    <li><a href="./issuesList.html">Issues List</a></li>
-                    <li><a href="./addIssue.html">Add Issue</a></li>
-                    <li><a href="./details.html">Issue Details</a></li>
-                    <li><a href="./secret.html">Secret</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <h4>Navigation</h4>
+            <ul>
+                <li><a href="./login.html">Login</a></li>
+                <li><a href="./about.html">About Us</a></li>
+                <li><a href="./issuesList.html">Issues List</a></li>
+                <li><a href="./addIssue.html">Add Issue</a></li>
+                <li><a href="./details.html">Issue Details</a></li>
+                <li><a href="./secret.html">Secret</a></li>
+            </ul>
+        </nav>
+    </div>
     <main>
         <h1>---------- Welcome to NameTBD -----------</h1>
         <h3>------------------- NameTBD is an issue tracker --------------</h3>
     </main>
-    
+
     <form action="./issuesList.html">
         <p><label>Username or email address</label></p>
         <p><input type="text" name="username" value="userid"></p>
@@ -40,9 +42,9 @@
         <p><input type="password" name="password" value=""></p>
         <p><input type="submit" value="Sign in"></p>
     </form>
-    
+
     <p>New to NameTBD? <a href="#">Create an account</a>.</p>
-    
+
     <section>
         <h6>This is a cool canvas</h6>
         <canvas id="myCanvas">This is my canvas.</canvas>
@@ -53,12 +55,12 @@
             b.fillRect(0, 0, 250, 150);
         </script>
     </section>
-    
+
     <details>
         <summary><strong>About this page</strong></summary>
         <p>This is our homework 2 of CSE134B</p>
     </details>
-        
+
 </body>
-    
+
 </html>
