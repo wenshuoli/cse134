@@ -103,6 +103,7 @@ blockquote {
     letter-spacing: normal;
     text-align: left;
     color: #777777;
+    margin: 0;
 }
 
 .notes {
@@ -165,8 +166,8 @@ blockquote {
 
 #login-logo{
     margin-bottom: 4rem;
-    width: 40px;
-    height: 40px;
+    width: 64px;
+    height: 64px;
 }
 
 .login-bg{
@@ -175,10 +176,21 @@ blockquote {
     height: 100%;
 }
 
+.v4{
+    margin-bottom: 4px;
+}
+.v8{
+    margin-bottom: 8px;
+}
 .v48{
     margin-bottom: 48px;
 }
-
+.v24{
+    margin-bottom: 24px;
+}
+.v40{
+    margin-bottom: 40px;
+}
 .v80{
     margin-bottom: 80px;
 }
@@ -195,11 +207,33 @@ blockquote {
     color: #999999;
 }
 
+.darkgrey{
+    color:#555555;
+}
+
 .longForm{
     width: 100%;
-    height: 38px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    height: 40px;
     border-radius: 4px;
     border: solid 1px #cccccc; 
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-family: Lato;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-family: Lato;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  font-family: Lato;
+}
+:-moz-placeholder { /* Firefox 18- */
+  font-family: Lato;
 }
 
 .primaryButton{
@@ -207,6 +241,7 @@ blockquote {
     height: 48px;
     border-radius: 8px;
     background-color: #5680e9;
+    border:none;
 }
 
 .normalButton{
