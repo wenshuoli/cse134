@@ -200,6 +200,10 @@ blockquote {
     margin-bottom: 32px;
 }
 
-.h1_gray{
-    color:#999999;
+.gray{
+    color: #999999;
+}
+
+.longForm{
+    width: 80%;
 }
