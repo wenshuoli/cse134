@@ -251,6 +251,7 @@ v16{
     border-radius: 8px;
     background-color: #5680e9;
     border:none;
+    cursor:pointer;
 }
 
 .normalButton{
@@ -260,6 +261,7 @@ v16{
     border-radius: 8px;
     border: solid 1px #999999;
     background-color: #ffffff;
+    cursor: pointer;
 }
 
 .footerMain{
