@@ -103,6 +103,7 @@ blockquote {
     letter-spacing: normal;
     text-align: left;
     color: #777777;
+    margin: 0;
 }
 
 .notes {
@@ -137,6 +138,15 @@ blockquote {
     grid-gap: 1rem;
 }
 
+.grid404{
+    height: 100%;
+    display: grid;
+    /* grid-template-columns:1fr 1fr 1fr;*/
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+    /* grid-auto-rows:100px; */
+    grid-auto-rows: minmax(80px, auto);
+}
 /*.wrapper > div {
     background: #eee;
     padding: 1em;
@@ -165,8 +175,8 @@ blockquote {
 
 #login-logo{
     margin-bottom: 4rem;
-    width: 40px;
-    height: 40px;
+    width: 64px;
+    height: 64px;
 }
 
 .login-bg{
@@ -175,31 +185,119 @@ blockquote {
     height: 100%;
 }
 
-.v48{
-    margin-bottom: 48px;
+.logopadding{
+    margin: 1em;
+}
+.image404{
+    margin-top:32px;
+    width: 80%;
+    margin-left: 10%;
 }
 
-.v80{
-    margin-bottom: 80px;
+.button404{
+    width: 80% !important;
+    margin-left: 10%;
 }
 
-.v72{
-    margin-bottom: 72px;
+.center{
+    text-align: center;
 }
 
+.v4{
+    margin-bottom: 4px;
+}
+.v8{
+    margin-bottom: 8px;
+}
+v16{
+    margin-bottom: 16px;
+}
+.v24{
+    margin-bottom: 24px;
+}
 .v32{
     margin-bottom: 32px;
 }
+.v40{
+    margin-bottom: 40px;
+}
+.v48{
+    margin-bottom: 48px;
+}
+.v56{
+    margin-bottom: 56px;
+}
+.v64{
+    margin-bottom: 64px;
+}
+.v72{
+    margin-bottom: 72px;
+}
+.v80{
+    margin-bottom: 80px;
+}
+.h80{
+    margin-left: 80px;
+}
+
+
 
 .gray{
     color: #999999;
 }
 
+.darkgrey{
+    color:#555555;
+}
+
 .longForm{
     width: 100%;
-    height: 38px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    height: 40px;
     border-radius: 4px;
     border: solid 1px #cccccc; 
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.shortForm{
+    width: 33% !important;
+}
+
+.description{
+    width: 640px;
+    height: 288px;
+    border-radius: 4px;
+    border: solid 1px #5680e9;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    padding: 16px;
+}
+
+.floatLeft{
+    float: left !important;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-family: Lato;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-family: Lato;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  font-family: Lato;
+}
+:-moz-placeholder { /* Firefox 18- */
+  font-family: Lato;
 }
 
 .primaryButton{
@@ -207,6 +305,8 @@ blockquote {
     height: 48px;
     border-radius: 8px;
     background-color: #5680e9;
+    border:none;
+    cursor:pointer;
 }
 
 .normalButton{
@@ -216,6 +316,7 @@ blockquote {
     border-radius: 8px;
     border: solid 1px #999999;
     background-color: #ffffff;
+    cursor: pointer;
 }
 
 .footerMain{
