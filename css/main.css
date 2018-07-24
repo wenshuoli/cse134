@@ -236,6 +236,9 @@ v16{
 .v80{
     margin-bottom: 80px;
 }
+.h80{
+    margin-left: 80px;
+}
 
 
 
@@ -257,6 +260,10 @@ v16{
     border: solid 1px #cccccc; 
     padding-left: 16px;
     padding-right: 16px;
+}
+
+.floatLeft{
+    float: left !important;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

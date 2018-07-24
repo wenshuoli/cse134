@@ -7,52 +7,32 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>NameTBD Add Issue</title>
-    <link rel="author" href="./about.html" hreflang="en">
+    <title>Add issue page</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
 </head>
 
 <body>
-    <div>
-        <nav>
-            <h4>Navigation</h4>
-            <ul>
-                <li><a href="./login.html">Login</a></li>
-                <li><a href="./about.html">About Us</a></li>
-                <li><a href="./issuesList.html">Issues List</a></li>
-                <li><a href="./addIssue.html">Add Issue</a></li>
-                <li><a href="./details.html">Issue Details</a></li>
-                <li><a href="./secret.html">Secret</a></li>
-            </ul>
-        </nav>
-    </div>
-    
-    <h1>Add Issue</h1>
+    <h3 class="v40">Home</h3>
+    <h1 class="v24">Add Issue</h1>
 
-    <form action="./NameTBD_Issues_List.html">
-        <p><label><strong>Issue Title</strong></label></p>
-        <p><input type="text" name="title" value="Title"></p>
-        <p><label><strong>Issue Type</strong></label></p>
-        <p><select name="issue type">
-                <option value="N/A">N/A</option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
-            </select></p>
-        <p><label><strong>Issue Description</strong></label></p>
-        <p><textarea rows=10 cols=80 name="description" maxlength="500"></textarea></p>
-        <p>
-            <label><strong>Issue Priority: </strong></label> Low
-            <input type="range" min="0" max="2" value="1" step="1" name="priority"> High
-        </p>
-        <p><label><strong>Issue Attachment</strong></label></p>
-        <p><input type="file" name="attach file"></p>
-        <p>
-            <input type="submit" value="Submit Issue" name="submission">
-            <input type="reset" name="reset page">
-        </p>
-        <button type="button" onclick="alert('If you have any questions about adding issues, please send a email to inform us.')">Help</button>
+    <form action="">
+        <h5>TITLE</h5>
+        <p class="v24"><input class="longForm" type="text" name="title" placeholder="Main.css conflict in h1 and h3 styling"></p>
+        <h5>PROJECT</h5>
+        <p class="v24"><input class="longForm" type="text" name="project" placeholder="Debuggie"></p>
+        <h5>DESCRIPTION</h5>
+        <p class="v48"><input class="description" type="text" name="description" placeholder="Lorem ipsum dolor sit amet, cum in probo omnesque detraxit, vis ei debitis habemus lucilius. Ei dicam argumentum scribentur vix, ad est ullum dolore elaboraret. Et usu doctus utamur, vix case eleifend assueverit et. Rebum brute omittantur mea id, modus oportere concludaturque duo in. Adipiscing efficiendi sit te, idque graece argumentum vel ne. Mei volumus intellegam eloquentiam cu, persius rationibus vix at, at alii graeci est. At qui habeo decore, dicit quando an usu, quo at quem iudicabit.
+
+Elitr euismod intellegat eos te, mea no odio hinc offendit. Nam in error tempor, ad nam timeam forensibus. Falli delicatissimi sed te, cu eam vituperata dissentiet. Dicit referrentur et nec, nam soleat latine efficiantur ad, at nisl volumus usu. Has lucilius electram ut, ut quo sint apeirian.
+"></p> 
     </form>
+    
+    <span class="buttons">
+        <a href="home.html"><input type="submit" class="primaryButton ButtonTextWhite floatLeft" value="Add"></a>
+        <a href="home.html"><button class="normalButton h80 floatLeft"><span class="ButtonTextBlack">Cancel</span></button></a>
+    </span>
+    
 
 </body>
 
