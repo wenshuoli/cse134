@@ -1,18 +1,171 @@
-
+* {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 /*Grid Layout*/
 .mainContainer {
-    height: 100%;
+    height: 900px;
     display: grid;
-    /* grid-template-columns:1fr 1fr 1fr;*/
-    grid-template-columns: 2fr 5fr;
-    grid-auto-rows: 100%;
+    grid-template-columns: minmax(143px, 1fr) 5fr;
+    grid-auto-rows: minmax(80px, auto);
 }
 
+/*Elements in the Vav Bar*/
 .navBar{
+    height:100%;
     background-color: #f3f6fd;
     box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.12);
 }
 
 .mainContent{
-    background-color: #fafafa;
+    height:100%;
+    background-color: #ffffff;
+}
+
+.Logo{
+    margin-top:32px;
+    margin-left:32px;
+    width: 40px;
+    height: 40px;
+}
+.NavHeadText{
+    margin-left:1em;
+    display:inline-block;
+    width:132px;
+}
+
+.NavTags{
+    margin-left:2rem;
+    margin-top:80px;
+}
+.NavTextActive{
+    color: #5680e9;
+    display: inline-block;
+    width:100px;
+}
+.NavText{
+    color: #7e7e7e;
+    display: inline-block;
+    width:100px;
+}
+.NavTag{
+    margin-bottom:2rem;
+}
+
+.NavIcon{
+    width:32px;
+    height:32px;
+    margin-right:32px;
+}
+
+.Logout{
+    margin-top:80%;
+    width: 100%;
+    text-align: center;
+    color: #5680e9;
+}
+
+/*Elements in the main body*/
+.mainContent{
+    margin-top: 32px;
+    margin-left: 72px;
+    margin-right: 64px;
+}
+.PageName{
+    margin-top: 32px;
+}
+
+.IssueList{
+    margin-top: 32px;
+    margin-right: 64px;
+    display: grid;
+    grid-template-columns: minmax(200px, 3fr) minmax(100px, 2fr) minmax(100px, 3fr);
+    grid-auto-rows: auto;
+}
+
+.ListLegend{
+    color: #555555;
+    margin-left: 8px;
+}
+
+.SolidLine{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    grid-column: 1/8;
+    height: 0px;
+    border: solid 1px #999999;
+}
+
+.IssueItem{
+    margin-left: 8px;
+}
+
+.VagueLine{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    grid-column: 1/8;
+    height: 0px;
+    border: solid 1px #cccccc;
+}
+
+/*Mobil layout*/
+@media screen and (max-width: 600px) {
+    .mainContainer {
+        height: 720px;
+        display: grid;
+        /* grid-template-columns:1fr 1fr 1fr;*/
+        grid-template-columns: 1fr;
+        /* grid-auto-rows:100px; */
+        grid-auto-rows: minmax(80px, auto);
+    }
+    /*Elements in Navbar in Mobile*/
+    .navBar{
+        width:100%;
+        height:auto;
+    }
+    .NavTag{
+        margin-bottom:8px;
+    }
+    .NavTags{
+        margin-left:2rem;
+        margin-top:16px;
+    }
+    .NavIcon{
+        width:24px;
+        height:24px;
+        margin-right:8px;
+        margin-bottom:0;
+    }
+    .NavText{
+        width:80px;
+    }
+
+    .Logout{
+        margin-top:0;
+    }
+    /*Elements in Main body in Mobile*/
+    .IssueList{
+        margin-top: 16px;
+        margin-right: 16px;
+        display: grid;
+        grid-template-columns: 3fr 2fr 2fr;
+        grid-auto-rows: auto;
+    }
+    .mainContent{
+        margin-top: 8px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .IssueItem{
+        margin-left: 2px;
+        font-size:12px;
+    }
+    .ListLegend{
+        font-size:16px;
+    }
+    .PageName{
+        font-size:24px;
+    }
+    
+    
 }
