@@ -10,7 +10,7 @@
     grid-auto-rows: minmax(80px, auto);
 }
 
-/*Elements in the Vav Bar*/
+/*Elements in the NavBar*/
 .navBar{
     height:100%;
     background-color: #f3f6fd;
@@ -38,11 +38,11 @@
     margin-left:2rem;
     margin-top:80px;
 }
-.NavTextActive{
-    color: #5680e9;
-    display: inline-block;
-    width:100px;
+
+.Active{
+    color: #5680e9 !important
 }
+
 .NavText{
     color: #7e7e7e;
     display: inline-block;
@@ -69,17 +69,25 @@
 .mainContent{
     margin-top: 32px;
     margin-left: 72px;
-    margin-right: 64px;
+    margin-right: 32px;
 }
 .PageName{
+    display: inline-block;
     margin-top: 32px;
 }
 
 .IssueList{
     margin-top: 32px;
-    margin-right: 64px;
     display: grid;
     grid-template-columns: minmax(200px, 3fr) minmax(100px, 2fr) minmax(100px, 3fr);
+    grid-auto-rows: auto;
+}
+
+.HomeIssueList{
+    margin-top: 32px;
+    margin-right: 32px;
+    display: grid;
+    grid-template-columns: minmax(200px, 3fr) minmax(100px, 2fr) minmax(100px, 2fr) minmax(100px, 2fr);
     grid-auto-rows: auto;
 }
 
@@ -108,6 +116,25 @@
     border: solid 1px #cccccc;
 }
 
+.addIssueButton{
+    width: 160px;
+    height: 48px;
+    float:right;
+    margin-top: 32px;
+    margin-right: 64px;
+    border-radius: 8px;
+    background-color: #5680e9;
+    border:none;
+    cursor: pointer;
+}
+
+.FunctionIcon{
+    width:32px;
+    height:32px;
+    display:inline-block;
+    margin-left:32px;
+}
+
 /*Mobil layout*/
 @media screen and (max-width: 600px) {
     .mainContainer {
@@ -131,18 +158,20 @@
         margin-top:16px;
     }
     .NavIcon{
-        width:24px;
-        height:24px;
+        width:16px;
+        height:16px;
         margin-right:8px;
         margin-bottom:0;
     }
     .NavText{
         width:80px;
+        font-size:12px;
     }
 
     .Logout{
         margin-top:0;
     }
+
     /*Elements in Main body in Mobile*/
     .IssueList{
         margin-top: 16px;
@@ -151,6 +180,15 @@
         grid-template-columns: 3fr 2fr 2fr;
         grid-auto-rows: auto;
     }
+
+    .HomeIssueList{
+        margin-top: 16px;
+        margin-right: 16px;
+        display: grid;
+        grid-template-columns: 3fr 2fr 2fr 2fr;
+        grid-auto-rows: auto;
+    }
+
     .mainContent{
         margin-top: 8px;
         margin-left: 0;
@@ -166,6 +204,25 @@
     .PageName{
         font-size:24px;
     }
+
+    .addIssueButton{
+        width: 72px;
+        height: 40px;
+        margin-right:8px;
+    }
     
+    .FunctionIcon{
+        width:16px;
+        height:16px;
+        display:inline-block;
+        margin-left:16px;
+    }
     
+    .ButtonTextWhite{
+        font-size:12px;
+    }
+
+    .Logout{
+        font-size:16px;
+    }
 }
