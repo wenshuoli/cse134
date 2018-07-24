@@ -138,6 +138,15 @@ blockquote {
     grid-gap: 1rem;
 }
 
+.grid404{
+    height: 100%;
+    display: grid;
+    /* grid-template-columns:1fr 1fr 1fr;*/
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+    /* grid-auto-rows:100px; */
+    grid-auto-rows: minmax(80px, auto);
+}
 /*.wrapper > div {
     background: #eee;
     padding: 1em;
@@ -174,6 +183,24 @@ blockquote {
     background-image: url("/images/Login/codes.jpeg");
     background-size: cover;
     height: 100%;
+}
+
+.logopadding{
+    margin: 1em;
+}
+.image404{
+    margin-top:32px;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.button404{
+    width: 80% !important;
+    margin-left: 10%;
+}
+
+.center{
+    text-align: center;
 }
 
 .v4{
