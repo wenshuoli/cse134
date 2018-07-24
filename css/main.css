@@ -262,6 +262,27 @@ v16{
     padding-right: 16px;
 }
 
+.shortForm{
+    width: 33% !important;
+}
+
+.description{
+    width: 640px;
+    height: 288px;
+    border-radius: 4px;
+    border: solid 1px #5680e9;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    padding: 16px;
+}
+
 .floatLeft{
     float: left !important;
 }
