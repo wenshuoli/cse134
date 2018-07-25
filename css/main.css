@@ -5,6 +5,10 @@
     margin-bottom: 0;
 }
 
+body{
+    margin:0;
+}
+
 /* Text styles */
 
 h1 {
