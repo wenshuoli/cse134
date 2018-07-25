@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>clock</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Mockups" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Resolved-Page" transform="translate(-32.000000, -272.000000)" fill="#5680E9" fill-rule="nonzero">
+            <g id="Side-Nav">
+                <g id="Resolved" transform="translate(32.000000, 272.000000)">
+                    <g id="clock">
+                        <path d="M20.586,23.414 L14,16.828 L14,8 L18,8 L18,15.172 L23.414,20.586 L20.586,23.414 Z M16,0 C7.163,0 0,7.163 0,16 C0,24.837 7.163,32 16,32 C24.837,32 32,24.837 32,16 C32,7.163 24.837,0 16,0 Z M16,28 C9.373,28 4,22.627 4,16 C4,9.373 9.373,4 16,4 C22.627,4 28,9.373 28,16 C28,22.627 22.627,28 16,28 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
