@@ -116,6 +116,10 @@ blockquote {
     color: #555555;
 }
 
+a{
+    text-decoration: inherit;
+}
+
 /* Grid Layouts */
 
 .wrapper {

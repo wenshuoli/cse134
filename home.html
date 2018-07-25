@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/home.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
+<<<<<<< HEAD
     <script>
             function deleteIssue(name){
                 var paras = document.getElementsByClassName(name);
@@ -17,38 +18,58 @@
                 }
             }
     </script>
+=======
+
+>>>>>>> 8919c8845f88d29aed59ce66e5de8d502d0c7abf
 </head>
 
 <body>
 
     <div class="mainContainer">
         <div class="navBar">
+<<<<<<< HEAD
             <div class="NavHead">
                <img class="Logo" src="/images/Logo.svg" alt="Logo">
                <h3 class="NavHeadText">Debuggie</h3>
             </div>
+=======
+            <a href="home.html">
+                <div class="navitem">
+                    <img class="Logo" src="/images/Logo.svg" alt="Logo">
+                    <div class="navTextHolder">
+                        <h3 class="NavHeadText">Debuggie</h3>
+                    </div>
+                </div>
+            </a>
+>>>>>>> 8919c8845f88d29aed59ce66e5de8d502d0c7abf
 
             <div class="NavTags">
                 <div class="NavTag">
-                    <a href="home.html"><img class="NavIcon" src="/images/home-3.svg" alt="Home_icon"></a>
+                    <a href="home.html"><img class="NavIcon" src="/images/Icons/home-3.svg" alt="Home_icon">
                     <h6 class="NavText Active">Home</h6>
+                    </a>
                 </div>
                 <div class="NavTag">
-                    <a href="addIssue.html"><img class="NavIcon" src="/images/plus.svg" alt="Add_icon"></a>
+                    <a href="addIssue.html"><img class="NavIcon" src="/images/icons/plus.svg" alt="Add_icon">
                     <h6 class="NavText">Add Issue</h6>
+                    </a>
                 </div>
                 <div class="NavTag">
-                    <a href="listHis.html"><img class="NavIcon" src="/images/clock.svg" alt="Resolved_icon"></a>
+                    <a href="listHis.html"><img class="NavIcon" src="/images/Icons/clock.svg" alt="Resolved_icon">
                     <h6 class="NavText">Resolved</h6>
+                    </a>
                 </div>
             </div>
 
-            <a href="index.html"><h4 class="Logout v64">Logout</h4></a>
+            <a href="index.html">
+                <h4 class="Logout v64">Logout</h4>
+            </a>
         </div>
 
         <div class="mainContent ">
             <h1>Home</h1>
             <div>
+<<<<<<< HEAD
             <h2 class="PageName">Open Issues</h2>
             <form action="./addIssue.html" class="addIssueForm">
                 <button class="addIssueButton"><span class="ButtonTextWhite">Add Issue</span></button>
@@ -98,6 +119,52 @@
                         <a href="listHis4.html"><img class="FunctionIcon" src="/images/check.svg" alt="Check_icon"></a>
                         <img class="FunctionIcon" src="/images/delete.svg" alt="Delete_icon" onclick="deleteIssue('Issue4')">
                    </div>
+=======
+                <h2 class="PageName">Open Issues</h2>
+                <a href="./addIssue.html"><button class="addIssueButton"><span class="ButtonTextWhite">Add Issue</span></button></a>
+            </div>
+            <div class="HomeIssueList">
+                <h5 class="ListLegend">TITLE</h5>
+                <h5 class="ListLegend">PROJECT</h5>
+                <h5 class="ListLegend">CREATED</h5>
+                <h5 class="LongListLegend"></h5>
+                <div class="SolidLine"></div>
+                <p class="IssueItem">Main.css conflict in h1 and h3 styling</p>
+                <p class="IssueItem">Debuggie</p>
+                <p class="IssueItem">07/23/2018</p>
+                <div class="FunctionIcons">
+                    <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
+                    <img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon">
+                    <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon">
+                </div>
+                <div class="VagueLine"></div>
+                <p class="IssueItem">JS not working in Issue List Page</p>
+                <p class="IssueItem">Debuggie</p>
+                <p class="IssueItem">07/22/2018</p>
+                <div class="FunctionIcons">
+                    <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
+                    <img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon">
+                    <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon">
+                </div>
+                <div class="VagueLine"></div>
+                <p class="IssueItem">CSS Grid not responsive in Logon Page</p>
+                <p class="IssueItem">Debuggie</p>
+                <p class="IssueItem">07/22/2018</p>
+                <div class="FunctionIcons">
+                    <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
+                    <img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon">
+                    <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon">
+                </div>
+                <div class="VagueLine"></div>
+                <p class="IssueItem">GItHub Desktop does not work</p>
+                <p class="IssueItem">Debuggie</p>
+                <p class="IssueItem">07/21/2018</p>
+                <div class="FunctionIcons">
+                    <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
+                    <img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon">
+                    <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon">
+                </div>
+>>>>>>> 8919c8845f88d29aed59ce66e5de8d502d0c7abf
             </div>
         </div>
     </div>

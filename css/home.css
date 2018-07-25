@@ -4,7 +4,7 @@
 }
 /*Grid Layout*/
 .mainContainer {
-    height: 900px;
+    height: 100%;
     display: grid;
     grid-template-columns: minmax(143px, 1fr) 5fr;
     grid-auto-rows: minmax(80px, auto);
@@ -15,6 +15,19 @@
     height:100%;
     background-color: #f3f6fd;
     box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.12);
+    min-width: 216px;
+    max-width: 256px;
+}
+
+.navitem > img{
+    vertical-align: middle;
+    display: inline-block;
+}
+
+
+.navTextHolder{
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .mainContent{
@@ -29,9 +42,9 @@
     height: 40px;
 }
 .NavHeadText{
-    margin-left:1em;
+    margin-left:1rem;
     display:inline-block;
-    width:132px;
+    margin-top: 2rem;;
 }
 
 .NavTags{
@@ -46,7 +59,8 @@
 .NavText{
     color: #7e7e7e;
     display: inline-block;
-    width:100px;
+    width:80px;
+    vertical-align: middle;
 }
 .NavTag{
     margin-bottom:2rem;
@@ -56,6 +70,7 @@
     width:32px;
     height:32px;
     margin-right:32px;
+    vertical-align: middle;
 }
 
 .Logout{
