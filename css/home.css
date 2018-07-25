@@ -117,12 +117,15 @@
     border: solid 1px #cccccc;
 }
 
-.addIssueButton{
-    width: 160px;
-    height: 48px;
+.addIssueForm{
     float:right;
     margin-top: 32px;
     margin-right: 64px;
+    
+}
+.addIssueButton{
+    width: 160px;
+    height: 48px;
     border-radius: 8px;
     background-color: #5680e9;
     border:none;
@@ -202,14 +205,19 @@
     .ListLegend{
         font-size:16px;
     }
+
     .PageName{
         font-size:24px;
+    }
+
+    .addIssueForm{
+        margin-right:8px;
+        
     }
 
     .addIssueButton{
         width: 72px;
         height: 40px;
-        margin-right:8px;
     }
     
     .FunctionIcon{
@@ -240,6 +248,10 @@
         display: none;
     }
 
+    .addIssueForm{
+        display: none;
+        
+    }
     .addIssueButton{
         display: none;
     }
