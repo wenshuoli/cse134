@@ -9,13 +9,21 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/home.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
+    <script>
+            function deleteIssue(name){
+                var paras = document.getElementsByClassName(name);
+                while(paras[0]) {
+                    paras[0].parentNode.removeChild(paras[0]);
+                }
+            }
+    </script>
 
 </head>
 
 <body>
 
     <div class="mainContainer">
-       <div class="overlay">
+        <div class="overlay">
            <div class="popup">
                <h3>
                    Are you sure you want to resolve this issue?
@@ -23,7 +31,7 @@
                <p class="v32">Once resolved, this action cannot be reversed.</p>
                <button class="destructive_btn">Resolve</button><button class="lowImpact_btn">Cancel</button>
            </div>
-       </div>
+        </div>
        
         <div class="navBar">
             <a href="home.html">
@@ -62,7 +70,9 @@
             <h1>Home</h1>
             <div>
                 <h2 class="PageName">Open Issues</h2>
-                <a href="./addIssue.html"><button class="addIssueButton"><span class="ButtonTextWhite">Add Issue</span></button></a>
+                <form class="addIssueForm" action="./addIssue.html">
+                    <button class="addIssueButton"><span class="ButtonTextWhite">Add Issue</span></button>
+                </form>
             </div>
             <div class="HomeIssueList">
                 <h5 class="ListLegend">TITLE</h5>
@@ -75,7 +85,7 @@
                 <p class="IssueItem">07/23/2018</p>
                 <div class="FunctionIcons">
                     <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
-                    <img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon">
+                    <a href="listHis1.html"><img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon"></a>
                     <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon">
                 </div>
                 <div class="VagueLine"></div>
@@ -84,7 +94,7 @@
                 <p class="IssueItem">07/22/2018</p>
                 <div class="FunctionIcons">
                     <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
-                    <img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon">
+                    <a href="listHis2.html"><img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon"></a>
                     <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon">
                 </div>
                 <div class="VagueLine"></div>
@@ -93,7 +103,7 @@
                 <p class="IssueItem">07/22/2018</p>
                 <div class="FunctionIcons">
                     <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
-                    <img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon">
+                    <a href="listHis3.html"><img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon"></a>
                     <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon">
                 </div>
                 <div class="VagueLine"></div>
@@ -102,7 +112,7 @@
                 <p class="IssueItem">07/21/2018</p>
                 <div class="FunctionIcons">
                     <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
-                    <img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon">
+                    <a href="listHis4.html"><img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon"></a>
                     <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon">
                 </div>
             </div>

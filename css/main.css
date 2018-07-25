@@ -118,7 +118,6 @@ blockquote {
     letter-spacing: normal;
     text-align: left;
     color: #555555;
-    color: var(--dark-grey);
 }
 
 a{
