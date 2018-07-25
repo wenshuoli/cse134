@@ -135,16 +135,12 @@
 .addIssueForm{
     float:right;
     margin-top: 32px;
-<<<<<<< HEAD
-    margin-right: 64px;
-    
-}
-.addIssueButton{
-    width: 160px;
-    height: 48px;
-=======
     margin-right: 32px;
->>>>>>> d2fc9c15d1f990ae1c283644c02d9b50c57e4b3f
+}
+
+.addIssueButton{
+    width:160px;
+    height:48px;
     border-radius: 8px;
     background-color: #5680e9;
     border:none;
