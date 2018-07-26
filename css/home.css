@@ -92,6 +92,15 @@
     margin-top: 32px;
 }
 
+.NavTag > a > h3{
+        display:inline-block;
+        vertical-align: middle;
+    }
+
+#backarrow{
+    margin-right:16px;
+}
+
 .IssueList{
     margin-top: 32px;
     display: grid;
@@ -255,12 +264,14 @@
     .navBar{
         width:100%;
         height:auto;
+        max-width: none;
     }
     .NavTag{
         margin-bottom:8px;
+        float:left;
     }
     .NavTags{
-        margin-left:2rem;
+        margin-left:1rem;
         margin-top:16px;
     }
     .NavIcon{
@@ -276,6 +287,7 @@
 
     .Logout{
         margin-top:0;
+        margin-bottom: 16px;
     }
 
     /*Elements in Main body in Mobile*/
@@ -299,6 +311,7 @@
         margin-top: 8px;
         margin-left: 0;
         margin-right: 0;
+        padding:16px;
     }
     .IssueItem{
         margin-left: 2px;
@@ -311,7 +324,7 @@
     .PageName{
         font-size:24px;
     }
-
+    
     .addIssueForm{
         margin-right:8px;
         
@@ -327,6 +340,7 @@
         height:16px;
         display:inline-block;
         margin-left:16px;
+        margin-bottom: 16px;
     }
 
     .Logout{
