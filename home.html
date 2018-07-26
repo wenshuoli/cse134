@@ -5,6 +5,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit issue page</title>
     <title>Debuggie Home</title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/home.css">
@@ -13,7 +15,6 @@
 </head>
 
 <body>
-
     <div class="mainContainer">
         <div class="overlay" hidden id="resolve-popup">
            <div class="popup">
@@ -75,6 +76,9 @@
                 <form class="addIssueForm" action="./addIssue.html">
                     <button class="addIssueButton"><span class="ButtonTextWhite">Add Issue</span></button>
                 </form>
+                <noscript>
+                    <h3 class="Attention">Attention! Your JavaScript is off. The delete and resolve icons cannot be used!</h3>
+                </noscript>
             </div>
             <div class="HomeIssueList">
                 <h5 class="ListLegend">TITLE</h5>
@@ -82,7 +86,7 @@
                 <h5 class="ListLegend">CREATED</h5>
                 <h5 class="LongListLegend"></h5>
                 <div class="SolidLine"></div>
-                <p class="IssueItem issue1">Main.css conflict in h1 and h3 styling</p>
+                <a class="issue1" href="issueDetails.html"><p class="IssueItem issue1">Main.css conflict in h1 and h3 styling</p></a>
                 <p class="IssueItem issue1">Debuggie</p>
                 <p class="IssueItem issue1">07/23/2018</p>
                 <div class="FunctionIcons issue1">
@@ -91,7 +95,7 @@
                     <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON('issue1')">
                 </div>
                 <div class="VagueLine issue1"></div>
-                <p class="IssueItem issue2">JS not working in Issue List Page</p>
+                <a class="issue2" href="issueDetails.html"><p class="IssueItem issue2">JS not working in Issue List Page</p></a>
                 <p class="IssueItem issue2">Debuggie</p>
                 <p class="IssueItem issue2">07/22/2018</p>
                 <div class="FunctionIcons issue2">
@@ -100,7 +104,7 @@
                     <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON('issue2')">
                 </div>
                 <div class="VagueLine issue2"></div>
-                <p class="IssueItem issue3">CSS Grid not responsive in Logon Page</p>
+                <a class="issue3" href="issueDetails.html"><p class="IssueItem issue3">CSS Grid not responsive in Logon Page</p></a>
                 <p class="IssueItem issue3">Debuggie</p>
                 <p class="IssueItem issue3">07/22/2018</p>
                 <div class="FunctionIcons issue3">
@@ -109,7 +113,7 @@
                     <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON('issue3')">
                 </div>
                 <div class="VagueLine issue3"></div>
-                <p class="IssueItem issue4">GItHub Desktop does not work</p>
+                <a class="issue4" href="issueDetails.html"><p class="IssueItem issue4">GItHub Desktop does not work</p></a>
                 <p class="IssueItem issue4">Debuggie</p>
                 <p class="IssueItem issue4">07/21/2018</p>
                 <div class="FunctionIcons issue4">
