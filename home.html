@@ -11,11 +11,27 @@
     <link rel="stylesheet" href="/css/home.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
     <script>
+            var deleted;
+
             function deleteIssue(name){
                 var paras = document.getElementsByClassName(name);
                 while(paras[0]) {
                     paras[0].parentNode.removeChild(paras[0]);
                 }
+                var el = document.getElementsByClassName('overlay');
+                el[0].setAttribute("hidden", true);
+            }
+
+            function deleteOverLayON(issueName){
+                deleted = issueName;
+                var el = document.getElementsByClassName('overlay');
+                el[0].removeAttribute('hidden');
+            }
+
+            function overLayOff(){
+                deleteIssue = null;
+                var el = document.getElementsByClassName('overlay');
+                el[0].setAttribute("hidden", true);
             }
     </script>
 
@@ -30,7 +46,7 @@
                    Are you sure you want to resolve this issue?
                </h3>
                <p class="v32">Once resolved, this action cannot be reversed.</p>
-               <button class="destructive_btn">Resolve</button><button class="lowImpact_btn">Cancel</button>
+               <button class="destructive_btn" onclick="deleteIssue(deleted)">Resolve</button><button class="lowImpact_btn" onclick="overLayOff()">Cancel</button>
            </div>
         </div>
        
@@ -81,40 +97,40 @@
                 <h5 class="ListLegend">CREATED</h5>
                 <h5 class="LongListLegend"></h5>
                 <div class="SolidLine"></div>
-                <p class="IssueItem">Main.css conflict in h1 and h3 styling</p>
-                <p class="IssueItem">Debuggie</p>
-                <p class="IssueItem">07/23/2018</p>
-                <div class="FunctionIcons">
+                <p class="IssueItem issue1">Main.css conflict in h1 and h3 styling</p>
+                <p class="IssueItem issue1">Debuggie</p>
+                <p class="IssueItem issue1">07/23/2018</p>
+                <div class="FunctionIcons issue1">
                     <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
                     <a href="listHis1.html"><img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon"></a>
-                    <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon">
+                    <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON('issue1')">
                 </div>
-                <div class="VagueLine"></div>
-                <p class="IssueItem">JS not working in Issue List Page</p>
-                <p class="IssueItem">Debuggie</p>
-                <p class="IssueItem">07/22/2018</p>
-                <div class="FunctionIcons">
+                <div class="VagueLine issue1"></div>
+                <p class="IssueItem issue2">JS not working in Issue List Page</p>
+                <p class="IssueItem issue2">Debuggie</p>
+                <p class="IssueItem issue2">07/22/2018</p>
+                <div class="FunctionIcons issue2">
                     <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
                     <a href="listHis2.html"><img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon"></a>
-                    <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon">
+                    <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON('issue2')">
                 </div>
-                <div class="VagueLine"></div>
-                <p class="IssueItem">CSS Grid not responsive in Logon Page</p>
-                <p class="IssueItem">Debuggie</p>
-                <p class="IssueItem">07/22/2018</p>
-                <div class="FunctionIcons">
+                <div class="VagueLine issue2"></div>
+                <p class="IssueItem issue3">CSS Grid not responsive in Logon Page</p>
+                <p class="IssueItem issue3">Debuggie</p>
+                <p class="IssueItem issue3">07/22/2018</p>
+                <div class="FunctionIcons issue3">
                     <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
                     <a href="listHis3.html"><img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon"></a>
-                    <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon">
+                    <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON('issue3')">
                 </div>
-                <div class="VagueLine"></div>
-                <p class="IssueItem">GItHub Desktop does not work</p>
-                <p class="IssueItem">Debuggie</p>
-                <p class="IssueItem">07/21/2018</p>
-                <div class="FunctionIcons">
+                <div class="VagueLine issue3"></div>
+                <p class="IssueItem issue4">GItHub Desktop does not work</p>
+                <p class="IssueItem issue4">Debuggie</p>
+                <p class="IssueItem issue4">07/21/2018</p>
+                <div class="FunctionIcons issue4">
                     <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
                     <a href="listHis4.html"><img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon"></a>
-                    <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon">
+                    <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON('issue4')">
                 </div>
             </div>
         </div>
