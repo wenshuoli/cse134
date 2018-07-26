@@ -177,12 +177,15 @@
     margin-left:32px;
 }
 
+.hidden{
+    visibility: hidden;
+}
 
 .overlay{
     width: 100%;
     height:100%;
     background-color:rgba(0,0,0,0.5);
-    position: absolute;
+    position: absolute;    
 }
 
 .popup{
@@ -198,6 +201,7 @@
 .popup > h3{
     text-align: center;
     padding: 16px;
+    padding-top: 32px;
 }
 
 .popup > p{
@@ -227,6 +231,17 @@
     font-size: 1rem;
     color: #555555;
 }
+
+
+/* Animations */
+.fadein{
+        -webkit-animation: fadein 0.3s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.3s; /* Firefox < 16 */
+        -ms-animation: fadein 0.3s; /* Internet Explorer */
+         -o-animation: fadein 0.3s; /* Opera < 12.1 */
+            animation: fadein 0.3s;
+}
+
 /*Mobil layout*/
 @media screen and (max-width: 750px) {
     .mainContainer {

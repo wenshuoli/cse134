@@ -5,7 +5,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Debuggie Home</title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/home.css">
@@ -34,19 +33,29 @@
                 el[0].setAttribute("hidden", true);
             }
     </script>
-
+    <script type="text/javascript" src="js/home.js"></script>
 </head>
 
 <body>
 
     <div class="mainContainer">
-        <div class="overlay" hidden>
+        <div class="overlay hidden" id="resolve-popup">
            <div class="popup">
                <h3>
                    Are you sure you want to resolve this issue?
                </h3>
                <p class="v32">Once resolved, this action cannot be reversed.</p>
                <button class="destructive_btn" onclick="deleteIssue(deleted)">Resolve</button><button class="lowImpact_btn" onclick="overLayOff()">Cancel</button>
+           </div>
+        </div>
+        
+        <div class="overlay hidden" id="delete-popup">
+           <div class="popup">
+               <h3>
+                   Are you sure you want to delete this issue?
+               </h3>
+               <p class="v32">Once deleted this action cannot be reversed.</p>
+               <button class="destructive_btn">Delete</button><button class="lowImpact_btn">Cancel</button>
            </div>
         </div>
        
@@ -102,8 +111,13 @@
                 <p class="IssueItem issue1">07/23/2018</p>
                 <div class="FunctionIcons issue1">
                     <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
+<<<<<<< HEAD
                     <a href="listHis1.html"><img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon"></a>
                     <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON('issue1')">
+=======
+                    <img class="FunctionIcon" id="resolve-btn" src="/images/Icons/check.svg" alt="Check_icon">
+                    <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon">
+>>>>>>> 89589e08d6eb94c6a6e097fcc2012a377cccbf60
                 </div>
                 <div class="VagueLine issue1"></div>
                 <p class="IssueItem issue2">JS not working in Issue List Page</p>
