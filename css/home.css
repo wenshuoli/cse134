@@ -318,7 +318,6 @@
     .Logout{
         font-size:16px;
     }
-<<<<<<< HEAD
 
     .EditSaveButton{
         width: 136px;
@@ -333,13 +332,13 @@
     .EditCancelForm{
         margin-left:0;
         float:right;
-=======
+    
+    }
     
     .popup{
         width:80%;
         margin-left:10%;
         margin-top:40%;
->>>>>>> 006d30bf142d38ac91d34dadde0dffb362415ff0
     }
 }
 
