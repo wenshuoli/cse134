@@ -152,6 +152,16 @@ a{
     /* grid-auto-rows:100px; */
     grid-auto-rows: minmax(80px, auto);
 }
+
+.gridabout{
+    height: 100%;
+    display: grid;
+    /* grid-template-columns:1fr 1fr 1fr;*/
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-gap: 1em;
+    /* grid-auto-rows:100px; */
+    grid-auto-rows: minmax(80px, auto);
+}
 /*.wrapper > div {
     background: #eee;
     padding: 1em;
@@ -359,6 +369,14 @@ a{
     color: #ffffff;
 }
 
+.image-about{
+    width:40%;
+    margin-left: 30%;
+    margin-top: 64px;
+}
+#about-header{
+    margin-top: 80px;
+}
 
 
 /*Mobil layout*/
