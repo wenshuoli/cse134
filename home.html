@@ -9,53 +9,29 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/home.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
-    <script>
-            var deleted;
-
-            function deleteIssue(name){
-                var paras = document.getElementsByClassName(name);
-                while(paras[0]) {
-                    paras[0].parentNode.removeChild(paras[0]);
-                }
-                var el = document.getElementsByClassName('overlay');
-                el[0].setAttribute("hidden", true);
-            }
-
-            function deleteOverLayON(issueName){
-                deleted = issueName;
-                var el = document.getElementsByClassName('overlay');
-                el[0].removeAttribute('hidden');
-            }
-
-            function overLayOff(){
-                deleteIssue = null;
-                var el = document.getElementsByClassName('overlay');
-                el[0].setAttribute("hidden", true);
-            }
-    </script>
-    <script type="text/javascript" src="js/home.js"></script>
+    <script src="js/home.js"></script>
 </head>
 
 <body>
 
     <div class="mainContainer">
-        <div class="overlay hidden" id="resolve-popup">
+        <div class="overlay" hidden id="resolve-popup">
            <div class="popup">
                <h3>
                    Are you sure you want to resolve this issue?
                </h3>
                <p class="v32">Once resolved, this action cannot be reversed.</p>
-               <button class="destructive_btn" onclick="deleteIssue(deleted)">Resolve</button><button class="lowImpact_btn" onclick="overLayOff()">Cancel</button>
+               <button class="destructive_btn" onclick="resolveIssue(resolved)">Resolve</button><button class="lowImpact_btn" onclick="overLayOff()">Cancel</button>
            </div>
         </div>
         
-        <div class="overlay hidden" id="delete-popup">
+        <div class="overlay" hidden id="delete-popup">
            <div class="popup">
                <h3>
                    Are you sure you want to delete this issue?
                </h3>
                <p class="v32">Once deleted this action cannot be reversed.</p>
-               <button class="destructive_btn">Delete</button><button class="lowImpact_btn">Cancel</button>
+               <button class="destructive_btn" onclick="deleteIssue(deleted)">Delete</button><button class="lowImpact_btn" onclick="overLayOff()">Cancel</button>
            </div>
         </div>
        
@@ -111,13 +87,8 @@
                 <p class="IssueItem issue1">07/23/2018</p>
                 <div class="FunctionIcons issue1">
                     <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
-<<<<<<< HEAD
-                    <a href="listHis1.html"><img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon"></a>
+                    <img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon" onclick="resolveOverLayON('issue1')">
                     <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON('issue1')">
-=======
-                    <img class="FunctionIcon" id="resolve-btn" src="/images/Icons/check.svg" alt="Check_icon">
-                    <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon">
->>>>>>> 89589e08d6eb94c6a6e097fcc2012a377cccbf60
                 </div>
                 <div class="VagueLine issue1"></div>
                 <p class="IssueItem issue2">JS not working in Issue List Page</p>
@@ -125,7 +96,7 @@
                 <p class="IssueItem issue2">07/22/2018</p>
                 <div class="FunctionIcons issue2">
                     <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
-                    <a href="listHis2.html"><img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon"></a>
+                    <img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon" onclick="resolveOverLayON('issue2')">
                     <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON('issue2')">
                 </div>
                 <div class="VagueLine issue2"></div>
@@ -134,7 +105,7 @@
                 <p class="IssueItem issue3">07/22/2018</p>
                 <div class="FunctionIcons issue3">
                     <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
-                    <a href="listHis3.html"><img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon"></a>
+                    <img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon" onclick="resolveOverLayON('issue3')">
                     <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON('issue3')">
                 </div>
                 <div class="VagueLine issue3"></div>
@@ -143,7 +114,7 @@
                 <p class="IssueItem issue4">07/21/2018</p>
                 <div class="FunctionIcons issue4">
                     <a href="editIssue.html"><img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>
-                    <a href="listHis4.html"><img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon"></a>
+                    <img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon" onclick="resolveOverLayON('issue4')">
                     <img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON('issue4')">
                 </div>
             </div>
