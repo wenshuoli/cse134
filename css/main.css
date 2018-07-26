@@ -268,7 +268,8 @@ a{
 }
 
 .description{
-    width: 53%;
+    width: 640px;
+    max-width: 90%;
     height: 288px;
     border-radius: 4px;
     border: solid 1px #5680e9;
@@ -357,7 +358,7 @@ a{
 
 
 /*Mobil layout*/
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
     .wrapper {
         height: 100%;
         display: grid;
@@ -389,5 +390,13 @@ a{
         width: 136px;
         height: 48px;
         float: right;
+    }
+
+    .description{
+        width: 90%;
+    }
+
+    .longForm{
+        width:90% !important;
     }
 }

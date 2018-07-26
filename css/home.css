@@ -147,6 +147,29 @@
     cursor: pointer;
 }
 
+.EditSaveButton{
+    width: 160px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: #5680e9;
+    border:none;
+    cursor:pointer;
+}
+
+.EditCancelButton{
+    width: 160px;
+    height: 48px;
+    border-radius: 8px;
+    border: solid 1px #999999;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.EditCancelForm{
+    display: inline-block;
+    margin-left: 80px;
+}
+
 .FunctionIcon{
     width:32px;
     height:32px;
@@ -263,13 +286,24 @@
         display:inline-block;
         margin-left:16px;
     }
-    
-    .ButtonTextWhite{
-        font-size:12px;
-    }
 
     .Logout{
         font-size:16px;
+    }
+
+    .EditSaveButton{
+        width: 136px;
+        height: 48px;
+    }
+    
+    .EditCancelButton{
+        width: 136px;
+        height: 48px;
+    }
+
+    .EditCancelForm{
+        margin-left:0;
+        float:right;
     }
 }
 
