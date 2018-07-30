@@ -77,3 +77,35 @@ function createElement(issueId, issueVal){
 
     console.log(html);
 }
+
+function resolveIssue(issueId) {
+    var database = firebase.database();
+    //console.log(firebase.auth().currentUser);
+    var userId = firebase.auth().currentUser.uid;
+    var openIssuesRef = firebase.database().ref('/users/' + userId + '/open/' + issueId);
+
+    //Create variables to store the previous values
+    var prevDate;
+    var prevDescription;
+    var prevProject;
+    var prevTitle;
+    //console.log("ref=" + openIssuesRef);
+    openIssuesRef.on('value', function (snapshot) {
+        //console.log(snapshot.val());
+        prevDate = snapshot.val().date;
+        prevDescription = snapshot.val().description;
+        prevProject = snapshot.val().project;
+        prevTitle = snapshot.val().title;
+        //console.log("prevTitle=" + prevTitle);
+
+        openIssuesRef.set({
+            title: prevTitle,
+            date: prevDate,
+            project: prevProject,
+            solved: true,
+            description: prevDescription
+        });
+
+        //console.log(snapshot.val());
+    });
+}
