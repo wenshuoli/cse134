@@ -12,6 +12,81 @@
     <title>Welcome to Debuggie</title>
     <link rel="stylesheet" href="/css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAnVSaJE3reoCi8YGL48warMWrr6KBFUiU",
+            authDomain: "cse134test.firebaseapp.com",
+            databaseURL: "https://cse134test.firebaseio.com",
+            projectId: "cse134test",
+            storageBucket: "cse134test.appspot.com",
+            messagingSenderId: "77133607784"
+        };
+        firebase.initializeApp(config);
+
+        function toggleSignIn() {
+            if (firebase.auth().currentUser) {
+                // [START signout]
+                alert('You have been signed out, please sign in again.');
+                firebase.auth().signOut();
+                return;
+                // [END signout]
+            } else {
+                var email = document.getElementById('email').value;
+                var password = document.getElementById('password').value;
+
+                if (email.length < 4) {
+                    alert('Please enter an valid email address.');
+                    return;
+                }
+
+                if (password.length < 4) {
+                    alert('Please enter an valid password.');
+                    return;
+                }
+                // Sign in with email and pass.
+                // [START authwithemail]
+                firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+                // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    // [START_EXCLUDE]
+                    if (errorCode === 'auth/wrong-password') {
+                        alert('Wrong password.');
+                    } else {
+                        alert(errorMessage);
+                    }
+                    console.log(error);
+                    document.getElementById('emailSignin').disabled = false;
+                    // [END_EXCLUDE]
+                    });
+                    // [END authwithemail]
+            }
+            document.getElementById('emailSignin').disabled = true;
+             
+        }
+
+    function initApp() {
+        // Listening for auth state changes.
+        // [START authstatelistener]
+        firebase.auth().onAuthStateChanged(function(user) {
+            // [START_EXCLUDE silent]
+            // [END_EXCLUDE]
+            if (firebase.auth().currentUser) {
+                open('home.html');
+                window.close();
+            }
+            // User is signed in.
+        });
+    }
+
+    window.onload = function() {
+      initApp();
+    };
+    </script>
 </head>
 
 <body>
@@ -24,13 +99,13 @@
 
             <form >
                 <h5 class="darkgrey v4">EMAIL</h5>
-                <p class="v32"><input class="longForm" type="text" name="username" placeholder="Please enter your email"></p>
+                <p class="v32"><input class="longForm" id="email" type="text" name="username" placeholder="Please enter your email"></p>
                 <h5 class="darkgrey v4">PASSWORD</h5>
-                <p class="v72"><input class="longForm" type="password" name="password" placeholder="Enter your password here"></p>
+                <p class="v72"><input class="longForm" id="password" type="password" name="password" placeholder="Enter your password here"></p>
             </form>
 
             <span class="buttons">
-                <a href="home.html"><input type="submit" class="primaryButton ButtonTextWhite" value="Login"></a>
+                <a ><input type="submit" class="primaryButton ButtonTextWhite" id="emailSignin" value="Login" onclick="toggleSignIn()"></a>
                 <a href="signup.html"><button class="normalButton"><span class="ButtonTextBlack">Sign Up</span></button></a>
             </span>
             
