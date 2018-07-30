@@ -11,6 +11,27 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/home.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/firebase.js"></script>
+    <script>
+        // Check login status
+        
+        window.onload = function() {
+            firebase.auth().onAuthStateChanged(function(user) {
+        // [START_EXCLUDE silent]
+        // [END_EXCLUDE]
+                if (!firebase.auth().currentUser) {
+                    alert('You have been signed out, please log in again!');
+                    window.location.href = './index.html';
+                }
+            });
+        };
+            
+    </script>
 </head>
 
 <body>
@@ -43,9 +64,7 @@
                 </div>
             </div>
 
-            <a href="index.html">
-                <h4 class="Logout v64">Logout</h4>
-            </a>
+            <h4 class="Logout v64" onclick="signOut()" >Logout</h4>
         </div>
 
         <div class="mainContent ">
@@ -59,17 +78,16 @@
 
             <form action="">
                 <h5>TITLE</h5>
-                <p class="v24"><input class="longForm shortForm" type="text" name="title" placeholder="Enter the title of the issue"></p>
+                <p class="v24"><input class="longForm shortForm" type="text" name="title" id="title" placeholder="Enter the title of the issue"></p>
                 <h5>PROJECT</h5>
-                <p class="v24"><input class="longForm shortForm" type="text" name="project" placeholder="Enter which project it belongs to"></p>
+                <p class="v24"><input class="longForm shortForm" type="text" name="project" id="project" placeholder="Enter which project it belongs to"></p>
                 <h5>DESCRIPTION</h5>
-                <p class="v48"><textarea class="description" name="description" placeholder="Enter a detailed description of the issue."></textarea></p>
+                <p class="v48"><textarea class="description" name="description" id="description" placeholder="Enter a detailed description of the issue."></textarea></p>
             </form>
 
             <span class="buttons">
-        <a href="home.html"><input type="submit" class="primaryButton ButtonTextWhite floatLeft" value="Add"></a>
-        <a href="home.html"><button class="normalButton h80 floatLeft"><span class="ButtonTextBlack">Cancel</span></button>
-            </a>
+                <input onclick="addIssue()" class="primaryButton ButtonTextWhite floatLeft" value="Add">
+                <button onclick="discardAdd()" class="normalButton h80 floatLeft"><span class="ButtonTextBlack">Cancel</span></button>
             </span>
         </div>
 

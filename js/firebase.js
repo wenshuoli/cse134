@@ -21,43 +21,71 @@ function initApp() {
     });
 }
 
-function checkLogin() {
+function signOut(){
+    if(firebase.auth().currentUser)
+        firebase.auth().signOut();
+}
+
+function checkLoginHome() {
     // Listening for auth state changes.
     // [START authstatelistener]
     firebase.auth().onAuthStateChanged(function(user) {
         // [START_EXCLUDE silent]
         // [END_EXCLUDE]
         if (!firebase.auth().currentUser) {
+            alert('You have been signed out, please log in again!');
             window.location.href = './index.html';
         }
         else{
-            getHistory();
+            getHomeHistory();
         }
         // User is not signed in.
     });
 }
 
-function getHistory(){
+function deleteResidual() {
+    var paras = document.getElementsByClassName('IssueItem');
+    while(paras[0]) {
+        paras[0].parentNode.removeChild(paras[0]);
+    }
+    paras = document.getElementsByClassName('FunctionIcons');
+    while(paras[0]) {
+        paras[0].parentNode.removeChild(paras[0]);
+    }
+
+    paras = document.getElementsByClassName('FunctionIcon');
+    while(paras[0]) {
+        paras[0].parentNode.removeChild(paras[0]);
+    }
+    paras = document.getElementsByClassName('VagueLine');
+    while(paras[0]) {
+        paras[0].parentNode.removeChild(paras[0]);
+    }
+}
+
+function getHomeHistory(){
     var database = firebase.database();
     //console.log(firebase.auth().currentUser);
     var userId = firebase.auth().currentUser.uid;
     var openIssuesRef = firebase.database().ref('/users/' + userId + '/open');
     openIssuesRef.on('value', function(snapshot)
     {
+        deleteResidual();
         snapshot.forEach(function(childSnapshot){
-            createElement(childSnapshot.key, childSnapshot.val());
+            if(!childSnapshot.val().solved)
+              createHomeElement(childSnapshot.key, childSnapshot.val());
         });
     });
     
 }
 
-function createElement(issueId, issueVal){
+function createHomeElement(issueId, issueVal){
     var html = 
     
     '<p class="IssueItem ' + issueId + '">' + issueVal.title + '</p>' + 
     '<p class="IssueItem ' + issueId + '">' + issueVal.project + '</p>' + 
     '<p class="IssueItem '+ issueId+ '">' + issueVal.date + '</p>' + 
-    '<div class="FunctionIcons' + issueId + '">' + 
+    '<div class="FunctionIcons ' + issueId + '">' + 
         '<img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>' + 
         '<img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon" onclick="resolveOverLayON(' + issueId + ')">' + 
         '<img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON(' + issueId + ')">' + 
@@ -75,5 +103,87 @@ function createElement(issueId, issueVal){
 
     }
 
-    console.log(html);
+}
+
+function checkLoginHis() {
+    // Listening for auth state changes.
+    // [START authstatelistener]
+    firebase.auth().onAuthStateChanged(function(user) {
+        // [START_EXCLUDE silent]
+        // [END_EXCLUDE]
+        if (!firebase.auth().currentUser) {
+            alert('You have been signed out, please log in again!');
+            window.location.href = './index.html';
+        }
+        else{
+            getSolvedHistory();
+        }
+        // User is not signed in.
+    });
+}
+
+function getSolvedHistory(){
+    var database = firebase.database();
+    //console.log(firebase.auth().currentUser);
+    var userId = firebase.auth().currentUser.uid;
+    var openIssuesRef = firebase.database().ref('/users/' + userId + '/open');
+    openIssuesRef.on('value', function(snapshot)
+    {
+        snapshot.forEach(function(childSnapshot){
+            if(childSnapshot.val().solved)
+                createSolvedElement(childSnapshot.key, childSnapshot.val());
+        });
+    });
+    
+}
+
+function createSolvedElement(issueId, issueVal){
+    var html = 
+    
+    '<p class="IssueItem ' + issueId + '">' + issueVal.title + '</p>' + 
+    '<p class="IssueItem ' + issueId + '">' + issueVal.project + '</p>' + 
+    '<p class="IssueItem '+ issueId+ '">' + issueVal.date + '</p>' + 
+    '<div class="VagueLine ' + issueId + '"></div>'
+    
+    var temp = document.createElement('div');
+    temp.innerHTML = html;
+
+    
+    var list = document.getElementById('IssueList');
+
+    while (temp.firstChild) {
+        list.appendChild(temp.firstChild);
+
+    }
+}
+
+function addIssue(){
+    var database = firebase.database();
+    //console.log(firebase.auth().currentUser);
+    var userId = firebase.auth().currentUser.uid;
+
+    var d = new Date();
+    var issueDate = (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear();
+    var issueTitle = document.getElementById('title').value;
+    var issueProject = document.getElementById('project').value;
+    var issueDiscription = document.getElementById('description').value;
+    var issue = {date:issueDate, title:issueTitle, description:issueDiscription, 
+        solved:false, project:issueProject};
+
+    var newIssueKey = firebase.database().ref('users/' + userId + '/open').push().key;
+    var updates = {};
+    updates['users/' + userId + '/open/' + newIssueKey] = issue;
+
+    firebase.database().ref().update(updates, function(error){
+        if (error) {
+            alert('Oops! Something went wrong!');
+        } else {
+            alert('Successfully added!');
+            window.location.href = './home.html';
+        }
+    });
+}
+
+function discardAdd(){
+    window.location.href = './home.html';
 }
