@@ -41,14 +41,39 @@ function getHistory(){
     var database = firebase.database();
     //console.log(firebase.auth().currentUser);
     var userId = firebase.auth().currentUser.uid;
-    var openIssuesRef = firebase.database().ref('users/' + userId + '/opens');
+    var openIssuesRef = firebase.database().ref('/users/' + userId + '/open');
     openIssuesRef.on('value', function(snapshot)
     {
-        console.log(snapshot.child('YHReqChPivJWV7n2CdWb'));
         snapshot.forEach(function(childSnapshot){
-            console.log(1);
-            console.log(childSnapshot.key);
+            createElement(childSnapshot.key, childSnapshot.val());
         });
     });
     
+}
+
+function createElement(issueId, issueVal){
+    var html = 
+    
+    '<p class="IssueItem ' + issueId + '">' + issueVal.title + '</p>' + 
+    '<p class="IssueItem ' + issueId + '">' + issueVal.project + '</p>' + 
+    '<p class="IssueItem '+ issueId+ '">' + issueVal.date + '</p>' + 
+    '<div class="FunctionIcons' + issueId + '">' + 
+        '<img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>' + 
+        '<img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon" onclick="resolveOverLayON(' + issueId + ')">' + 
+        '<img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON(' + issueId + ')">' + 
+    '</div>' + 
+    '<div class="VagueLine ' + issueId + '"></div>'
+    
+    var temp = document.createElement('div');
+    temp.innerHTML = html;
+
+    
+    var list = document.getElementById('HomeIssueList');
+
+    while (temp.firstChild) {
+        list.appendChild(temp.firstChild);
+
+    }
+
+    console.log(html);
 }
