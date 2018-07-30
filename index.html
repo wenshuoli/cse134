@@ -76,8 +76,7 @@
             // [START_EXCLUDE silent]
             // [END_EXCLUDE]
             if (firebase.auth().currentUser) {
-                open('home.html');
-                window.close();
+                window.location.href = './home.html';
             }
             // User is signed in.
         });
