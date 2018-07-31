@@ -87,8 +87,8 @@ function createHomeElement(issueId, issueVal){
     '<p class="IssueItem '+ issueId+ '">' + issueVal.date + '</p>' + 
     '<div class="FunctionIcons ' + issueId + '">' + 
         '<img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>' + 
-        '<img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon" onclick="resolveOverLayON(' + issueId + ')">' + 
-        '<img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON(' + issueId + ')">' + 
+        '<img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon" onclick="resolveOverLayON(\'' + issueId + '\')">' + 
+        '<img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON(\'' + issueId + '\')">' + 
     '</div>' + 
     '<div class="VagueLine ' + issueId + '"></div>'
     
@@ -129,6 +129,7 @@ function getSolvedHistory(){
     var openIssuesRef = firebase.database().ref('/users/' + userId + '/open');
     openIssuesRef.on('value', function(snapshot)
     {
+        deleteResidual();
         snapshot.forEach(function(childSnapshot){
             if(childSnapshot.val().solved)
                 createSolvedElement(childSnapshot.key, childSnapshot.val());
@@ -186,4 +187,53 @@ function addIssue(){
 
 function discardAdd(){
     window.location.href = './home.html';
+}
+
+function resolveIssue(issueId) {
+    var database = firebase.database();
+    //console.log(firebase.auth().currentUser);
+    var userId = firebase.auth().currentUser.uid;
+    var openIssuesRef = firebase.database().ref('/users/' + userId + '/open/' + issueId);
+
+    //Create variables to store the previous values
+    var prevDate;
+    var prevDescription;
+    var prevProject;
+    var prevTitle;
+    //console.log("ref=" + openIssuesRef);
+    openIssuesRef.on('value', function (snapshot) {
+        //console.log(snapshot.val());
+        prevDate = snapshot.val().date;
+        prevDescription = snapshot.val().description;
+        prevProject = snapshot.val().project;
+        prevTitle = snapshot.val().title;
+        //console.log("prevTitle=" + prevTitle);
+
+        openIssuesRef.set({
+            title: prevTitle,
+            date: prevDate,
+            project: prevProject,
+            solved: true,
+            description: prevDescription
+        });
+
+        //console.log(snapshot.val());
+    });
+    var el = document.getElementsByClassName('overlay');
+    el[0].setAttribute("hidden", true);
+}
+
+function deleteIssue(issueId){
+    var database = firebase.database();
+    //console.log(firebase.auth().currentUser);
+    var userId = firebase.auth().currentUser.uid;
+    var issueRef = firebase.database().ref('/users/' + userId + '/open/' + issueId);
+    issueRef.remove(function(errer){
+        if(errer)
+            alert('Oops! Something went wrong. Please try again!');
+        else
+            alert('Successfully deleted!');
+    });
+    var el = document.getElementsByClassName('overlay');
+    el[1].setAttribute("hidden", true);
 }
