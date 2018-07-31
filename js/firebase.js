@@ -86,7 +86,7 @@ function createHomeElement(issueId, issueVal){
     '<p class="IssueItem ' + issueId + '">' + issueVal.project + '</p>' + 
     '<p class="IssueItem '+ issueId+ '">' + issueVal.date + '</p>' + 
     '<div class="FunctionIcons ' + issueId + '">' + 
-        '<img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon"></a>' + 
+        '<img class="FunctionIcon" src="/images/Icons/edit.svg" alt="Edit_icon" onclick="editIssue(\'' + issueId + '\')">' + 
         '<img class="FunctionIcon" src="/images/Icons/check.svg" alt="Check_icon" onclick="resolveOverLayON(\'' + issueId + '\')">' + 
         '<img class="FunctionIcon" src="/images/Icons/delete.svg" alt="Delete_icon" onclick="deleteOverLayON(\'' + issueId + '\')">' + 
     '</div>' + 
@@ -257,4 +257,33 @@ function deleteIssue(issueId){
     });
     var el = document.getElementsByClassName('overlay');
     el[1].setAttribute("hidden", true);
+}
+
+function editIssue(issueID){
+    var editIssueUrl = './editIssue.html?editIssueId=' + issueID;
+    window.location.href = editIssueUrl;
+}
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+function loadEditContent(){
+    var database = firebase.database();
+    //console.log(firebase.auth().currentUser);
+    var userId = firebase.auth().currentUser.uid;
+    var issueId = getParameterByName('editIssueId');
+    var openIssuesRef = firebase.database().ref('/users/' + userId + '/open/' + issueId);
+    openIssuesRef.on('value', function(snapshot)
+    {
+        var issueInfo = snapshot.val();
+        console.log(issueInfo);
+    });
+
 }
