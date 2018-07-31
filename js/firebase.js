@@ -158,6 +158,27 @@ function createSolvedElement(issueId, issueVal){
     }
 }
 
+function edit(issueId){
+    var database = firebase.database();
+    //console.log(firebase.auth().currentUser);
+    var userId = firebase.auth().currentUser.uid;
+
+    var d = new Date();
+    var issueDate = (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear();
+    var issueTitle = document.getElementById('title').value;
+    var issueProject = document.getElementById('project').value;
+    var issueDiscription = document.getElementById('description').value;
+    
+    var openIssuesRef = firebase.database().ref('/users/' + userId + '/open/' + issueId);
+    openIssuesRef.set({
+            title: issueTitle,
+            date: issueDate,
+            project: issueProject,
+            solved: false,
+            description: issueDiscription
+        });
+}
+
 function addIssue(){
     var database = firebase.database();
     //console.log(firebase.auth().currentUser);
