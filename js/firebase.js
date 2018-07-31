@@ -82,7 +82,7 @@ function getHomeHistory(){
 function createHomeElement(issueId, issueVal){
     var html = 
     
-    '<p class="IssueItem ' + issueId + '">' + issueVal.title + '</p>' + 
+    '<p class="IssueItem ' + issueId + '"onclick="checkDetail(\'' + issueId + '\')" >' + issueVal.title + '</p>' + 
     '<p class="IssueItem ' + issueId + '">' + issueVal.project + '</p>' + 
     '<p class="IssueItem '+ issueId+ '">' + issueVal.date + '</p>' + 
     '<div class="FunctionIcons ' + issueId + '">' + 
@@ -141,7 +141,7 @@ function getSolvedHistory(){
 function createSolvedElement(issueId, issueVal){
     var html = 
     
-    '<p class="IssueItem ' + issueId + '">' + issueVal.title + '</p>' + 
+    '<p class="IssueItem ' + issueId + '"onclick="checkDetail(\'' + issueId + '\')" >' + issueVal.title + '</p>' + 
     '<p class="IssueItem ' + issueId + '">' + issueVal.project + '</p>' + 
     '<p class="IssueItem '+ issueId+ '">' + issueVal.date + '</p>' + 
     '<div class="VagueLine ' + issueId + '"></div>'
@@ -303,6 +303,11 @@ function editIssue(issueID){
     window.location.href = editIssueUrl;
 }
 
+function checkDetail(issueID){
+    var issueDetailUrl = './issueDetails.html?issueDetailId=' + issueID;
+    window.location.href = issueDetailUrl;
+}
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, '\\$&');
@@ -326,3 +331,39 @@ function loadEditContent(){
     });
 
 }
+
+function loadDetailContent(){
+    var userId = firebase.auth().currentUser.uid;
+    var issueId = getParameterByName('issueDetailId');
+    var issueRef = firebase.database().ref('/users/' + userId + '/open/' + issueId);
+    issueRef.on('value', function(snapshot)
+    {
+        var issue = snapshot.val();
+        document.getElementById('title').innerHTML = issue.title;
+        document.getElementById('project').innerHTML = issue.project;
+        document.getElementById('description').innerHTML = issue.description;
+        document.getElementById('date').innerHTML = issue.date;
+    });
+
+}
+
+function getIssueFile(){
+    var issueId = getParameterByName('issueDetailId');
+    var pathRef = firebase.storage().ref('Issues/' + issueId);
+    pathRef.getDownloadURL().then(function(url) {
+        downloadURL(url)
+
+    }).catch(function(error){
+        //if(error.code == 'storage/object_not_found')
+            alert('It seems you didn\'t upload a file. You can upload a file by editting it!')
+    })
+}
+
+function downloadURL(url) {
+    var link = document.createElement("a");
+    link.href = url;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    delete link;
+  }
