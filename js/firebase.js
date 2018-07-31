@@ -184,26 +184,58 @@ function addIssue(){
     //console.log(firebase.auth().currentUser);
     var userId = firebase.auth().currentUser.uid;
 
+
     var d = new Date();
     var issueDate = (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear();
     var issueTitle = document.getElementById('title').value;
     var issueProject = document.getElementById('project').value;
     var issueDiscription = document.getElementById('description').value;
+    var issueFile = document.getElementById('file').files[0];
     var issue = {date:issueDate, title:issueTitle, description:issueDiscription, 
         solved:false, project:issueProject};
 
     var newIssueKey = firebase.database().ref('users/' + userId + '/open').push().key;
     var updates = {};
     updates['users/' + userId + '/open/' + newIssueKey] = issue;
-
     firebase.database().ref().update(updates, function(error){
         if (error) {
-            alert('Oops! Something went wrong!');
-        } else {
-            alert('Successfully added!');
-            window.location.href = './home.html';
-        }
+            alert('Oops! Something went wrong! Your issue didn\'t add successfully! Please Try Again');
+        } else 
+            uploadFile(newIssueKey, issueFile);
     });
+    
+}
+function uploadFile(newIssueKey, issueFile){
+    var storageRef = firebase.storage().ref();
+    if(issueFile){
+        var uploadTask = storageRef.child('Issues/' + newIssueKey).put(issueFile);
+        uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, function(snapshot) {
+            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+                switch (snapshot.state) {
+                    case firebase.storage.TaskState.PAUSED: // or 'paused'
+                        console.log('Upload is paused');
+                        break;
+                    case firebase.storage.TaskState.RUNNING: // or 'running'
+                        console.log('Upload is running');
+                        break;
+                }
+            }, function(error) {
+                if(error){
+                    alert('Oops! Something went wrong! Your file didn\'t upload successfully! Please delete this issue in the home page and try again!');
+                    window.location.href = './home.html';
+                }
+            }, function() {
+                // Upload completed successfully, now we can get the download URL
+                uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                    console.log('File available at', downloadURL);
+                });
+                window.location.href = './home.html';
+            });
+    }
+    else
+        window.location.href = './home.html';
 }
 
 function discardAdd(){
@@ -245,6 +277,7 @@ function resolveIssue(issueId) {
 }
 
 function deleteIssue(issueId){
+    var storageRef = firebase.storage().ref();
     var database = firebase.database();
     //console.log(firebase.auth().currentUser);
     var userId = firebase.auth().currentUser.uid;
@@ -252,8 +285,14 @@ function deleteIssue(issueId){
     issueRef.remove(function(errer){
         if(errer)
             alert('Oops! Something went wrong. Please try again!');
-        else
-            alert('Successfully deleted!');
+        else{
+            var desertRef = storageRef.child('Issues/' + issueId);
+            desertRef.delete().then(function() {
+                // File deleted successfully
+              }).catch(function(error) {
+                // Uh-oh, an error occurred!
+              });
+        }
     });
     var el = document.getElementsByClassName('overlay');
     el[1].setAttribute("hidden", true);
