@@ -1,5 +1,12 @@
 var rest = false;
 
+if ('serviceWorker' in navigator) {
+    // Use the window load event to keep the page load performant
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+}
+
 window.onload = function () {
     var popup = document.getElementById('resolve-btn');
     if (popup) {
