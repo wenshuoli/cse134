@@ -34,7 +34,7 @@ function checkLoginHome() {
     // [START authstatelistener]
     rest = getParameterByName('rest');
     if(rest)
-        getHomeHistoryRest();
+        getHistoryRest(false);
     else
         firebase.auth().onAuthStateChanged(function(user) {
             // [START_EXCLUDE silent]
@@ -115,18 +115,22 @@ function createHomeElement(issueId, issueVal){
 function checkLoginHis() {
     // Listening for auth state changes.
     // [START authstatelistener]
-    firebase.auth().onAuthStateChanged(function(user) {
-        // [START_EXCLUDE silent]
-        // [END_EXCLUDE]
-        if (!firebase.auth().currentUser) {
-            alert('You have been signed out, please log in again!');
-            window.location.href = './index.html';
-        }
-        else{
-            getSolvedHistory();
-        }
-        // User is not signed in.
-    });
+    rest = getParameterByName('rest');
+    if(rest)
+        getHistoryRest(true);
+    else
+        firebase.auth().onAuthStateChanged(function(user) {
+            // [START_EXCLUDE silent]
+            // [END_EXCLUDE]
+            if (!firebase.auth().currentUser) {
+                alert('You have been signed out, please log in again!');
+                window.location.href = './index.html';
+            }
+            else{
+                getSolvedHistory();
+            }
+            // User is not signed in.
+        });
 }
 
 function getSolvedHistory(){

@@ -21,6 +21,15 @@
     <script src="js/rest.js"></script>
     <script>
             // Check login status
+<<<<<<< HEAD
+            if (rest)
+                loadEditContentRest();
+            else {
+                window.onload = function() {
+                    firebase.auth().onAuthStateChanged(function(user) {
+                        // [START_EXCLUDE silent]
+                        // [END_EXCLUDE]
+=======
             rest = getParameterByName('rest');
             if(rest)
                 loadEditContent();
@@ -29,15 +38,23 @@
                     firebase.auth().onAuthStateChanged(function(user) {
                 // [START_EXCLUDE silent]
                 // [END_EXCLUDE]
+>>>>>>> b6bd137f19eb3c40557aa520fa84791dd2c23b2e
                         if (!firebase.auth().currentUser) {
                             alert('You have been signed out, please log in again!');
                             window.location.href = './index.html';
                         }
+<<<<<<< HEAD
+                        loadEditContent();
+                    });
+                };
+            }             
+=======
 
                         loadEditContent();
                     });
                 };
                 
+>>>>>>> b6bd137f19eb3c40557aa520fa84791dd2c23b2e
     </script>
 </head>
 
@@ -65,15 +82,15 @@
                         </a>
                     </div>
                 <div class="NavTag">
-                    <a href="listHis.html"><img class="NavIcon" src="/images/Icons/clock.svg" alt="Resolved_icon">
+                    <a onclick="resolvedIssueLink()"><img class="NavIcon" src="/images/Icons/clock.svg" alt="Resolved_icon">
                     <h6 class="NavText">Resolved</h6>
                     </a>
                 </div>
             </div>
 
-            <a href="index.html">
-                <h4 class="Logout v64" onclick="signOut()">Logout</h4>
-            </a>
+            
+            <h4 class="Logout v64" onclick="signOut()">Logout</h4>
+            
         </div>
 
         <div class="mainContent ">

@@ -18,27 +18,31 @@
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-storage.js"></script>
     <script src="js/home.js"></script>
     <script src="js/firebase.js"></script>
+    <script src="js/rest.js"></script>
     <script>
         // Initialize Firebase
-        window.onload = function() {
-            firebase.auth().onAuthStateChanged(function(user) {
-                // [START_EXCLUDE silent]
-                // [END_EXCLUDE]
-                if (!firebase.auth().currentUser) {
-                    alert('You have been signed out, please log in again!');
-                    window.location.href = './index.html';
-                }
-                loadDetailContent();
-            });
-        };
-    
+        if (rest)
+            loadDetailContentRest();
+        else {
+            window.onload = function() {
+                firebase.auth().onAuthStateChanged(function(user) {
+                    // [START_EXCLUDE silent]
+                    // [END_EXCLUDE]
+                    if (!firebase.auth().currentUser) {
+                        alert('You have been signed out, please log in again!');
+                        window.location.href = './index.html';
+                    }
+                    loadDetailContent();
+                });
+            };   
+        }
     </script>   
 </head>
 
 <body>
     <div class="mainContainer">
         <div class="navBar">
-            <a href="home.html">
+            <a onclick="homeLink()">
                 <div class="navitem">
                     <img class="Logo" src="/images/Logo.svg" alt="Logo">
                     <div class="navTextHolder">
@@ -49,17 +53,17 @@
 
             <div class="NavTags">
                 <div class="NavTag">
-                    <a href="home.html"><img class="NavIcon" src="/images/Icons/home_deactivated.svg" alt="Home_icon">
+                    <a onclick="homeLink()"><img class="NavIcon" src="/images/Icons/home_deactivated.svg" alt="Home_icon">
                     <h6 class="NavText">Home</h6>
                     </a>
                 </div>
                 <div class="NavTag">
-                        <a href="addIssue.html"><img class="NavIcon" src="/images/Icons/plus.svg" alt="Add_icon">
+                        <a onclick="addIssueLink()"><img class="NavIcon" src="/images/Icons/plus.svg" alt="Add_icon">
                         <h6 class="NavText">Add Issue</h6>
                         </a>
                     </div>
                 <div class="NavTag">
-                    <a href="listHis.html"><img class="NavIcon" src="/images/Icons/clock.svg" alt="Resolved_icon">
+                    <a onclick="resolvedIssueLink()"><img class="NavIcon" src="/images/Icons/clock.svg" alt="Resolved_icon">
                     <h6 class="NavText">Resolved</h6>
                     </a>
                 </div>
@@ -70,7 +74,7 @@
 
         <div class="mainContent ">
             <div class="NavTag">
-                    <a href="home.html">
+                    <a onclick="homeLink()">
                     <img class="NavIcon" id="backarrow" src="/images/Icons/back_arrow.svg" alt="Home_icon">
                     <h3>Back</h3>
                     </a>
