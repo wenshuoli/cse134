@@ -50,6 +50,14 @@ function homeLink(){
         window.location.href = './home.html';
 }
 
+function editIssue(issueID){
+    if(rest)
+        var editIssueUrl = './editIssue.html?rest=true&editIssueId=' + issueID;
+    else
+        var editIssueUrl = './editIssue.html?editIssueId=' + issueID;
+    window.location.href = editIssueUrl;
+}
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, '\\$&');
@@ -58,4 +66,10 @@ function getParameterByName(name, url) {
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+function loadEditContentToHtml(issueInfo){
+    document.getElementById('title').value = issueInfo.title;
+    document.getElementById('project').value = issueInfo.project;
+    document.getElementById('description').value = issueInfo.description;
 }

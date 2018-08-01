@@ -18,21 +18,25 @@
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-storage.js"></script>
     <script src="js/home.js"></script>
     <script src="js/firebase.js"></script>
+    <script src="js/rest.js"></script>
     <script>
             // Check login status
-            
-            window.onload = function() {
-                firebase.auth().onAuthStateChanged(function(user) {
-            // [START_EXCLUDE silent]
-            // [END_EXCLUDE]
-                    if (!firebase.auth().currentUser) {
-                        alert('You have been signed out, please log in again!');
-                        window.location.href = './index.html';
-                    }
+            rest = getParameterByName('rest');
+            if(rest)
+                loadEditContent();
+            else
+                window.onload = function() {
+                    firebase.auth().onAuthStateChanged(function(user) {
+                // [START_EXCLUDE silent]
+                // [END_EXCLUDE]
+                        if (!firebase.auth().currentUser) {
+                            alert('You have been signed out, please log in again!');
+                            window.location.href = './index.html';
+                        }
 
-                    loadEditContent();
-                });
-            };
+                        loadEditContent();
+                    });
+                };
                 
     </script>
 </head>
@@ -40,7 +44,7 @@
 <body>
     <div class="mainContainer">
         <div class="navBar">
-            <a href="home.html">
+            <a onclick="homeLink()">
                 <div class="navitem">
                     <img class="Logo" src="/images/Logo.svg" alt="Logo">
                     <div class="navTextHolder">
@@ -51,12 +55,12 @@
 
             <div class="NavTags">
                 <div class="NavTag">
-                    <a href="home.html"><img class="NavIcon" src="/images/Icons/home_deactivated.svg" alt="Home_icon">
+                    <a onclick="homeLink()"><img class="NavIcon" src="/images/Icons/home_deactivated.svg" alt="Home_icon">
                     <h6 class="NavText">Home</h6>
                     </a>
                 </div>
                 <div class="NavTag">
-                        <a href="addIssue.html"><img class="NavIcon" src="/images/Icons/plus.svg" alt="Add_icon">
+                        <a onclick="addIssueLink()"><img class="NavIcon" src="/images/Icons/plus.svg" alt="Add_icon">
                         <h6 class="NavText">Add Issue</h6>
                         </a>
                     </div>
@@ -81,7 +85,7 @@
             </div>
             <h1 class="v24">Edit Issue</h1>
 
-            <form action="">
+            <form>
                 <h5>TITLE</h5>
                 <p class="v24"><input class="longForm shortForm" type="text" id="title"></p>
                 <h5>PROJECT</h5>
@@ -93,7 +97,7 @@
             </form>
 
             <span class="buttons">
-                <input type="submit" class="EditSaveButton ButtonTextWhite" value="Save" onclick="saveEditIssue()">
+                <input class="EditSaveButton ButtonTextWhite" value="Save" onclick="saveEditIssue()">
                 <form action="home.html" class="EditCancelForm"><button class="EditCancelButton" onclick="discardEdit()"><span class="ButtonTextBlack">Cancel</span></button></form>
             </span>
         </div>
