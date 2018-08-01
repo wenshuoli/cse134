@@ -20,17 +20,20 @@
     <script src="js/firebase.js"></script>
     <script>
         // Check login status
-        
-        window.onload = function() {
-            firebase.auth().onAuthStateChanged(function(user) {
-        // [START_EXCLUDE silent]
-        // [END_EXCLUDE]
-                if (!firebase.auth().currentUser) {
-                    alert('You have been signed out, please log in again!');
-                    window.location.href = './index.html';
-                }
-            });
-        };
+        rest = getParameterByName('rest');
+        if(rest)
+            getHomeHistoryRest();
+        else
+            window.onload = function() {
+                firebase.auth().onAuthStateChanged(function(user) {
+            // [START_EXCLUDE silent]
+            // [END_EXCLUDE]
+                    if (!firebase.auth().currentUser) {
+                        alert('You have been signed out, please log in again!');
+                        window.location.href = './index.html';
+                    }
+                });
+            };
             
     </script>
 </head>
@@ -38,7 +41,7 @@
 <body>
     <div class="mainContainer">
         <div class="navBar">
-            <a href="home.html">
+            <a onclick="homeLink()">
                 <div class="navitem">
                     <img class="Logo" src="/images/Logo.svg" alt="Logo">
                     <div class="navTextHolder">
@@ -49,12 +52,12 @@
 
             <div class="NavTags">
                 <div class="NavTag">
-                    <a href="home.html"><img class="NavIcon" src="/images/Icons/home_deactivated.svg" alt="Home_icon">
+                    <a onclick="homeLink()"><img class="NavIcon" src="/images/Icons/home_deactivated.svg" alt="Home_icon">
                     <h6 class="NavText">Home</h6>
                     </a>
                 </div>
                 <div class="NavTag">
-                    <a href="addIssue.html"><img class="NavIcon" src="/images/Icons/plus_blue.svg" alt="Add_icon">
+                    <a onclick="addIssueLink()"><img class="NavIcon" src="/images/Icons/plus_blue.svg" alt="Add_icon">
                     <h6 class="NavText Active">Add Issue</h6>
                     </a>
                 </div>

@@ -29,7 +29,7 @@ function signOut(){
 function checkLoginHome() {
     // Listening for auth state changes.
     // [START authstatelistener]
-    var rest = getParameterByName('rest');
+    rest = getParameterByName('rest');
     if(rest)
         getHomeHistoryRest();
     else
@@ -184,11 +184,6 @@ function edit(issueId){
 }
 
 function addIssue(){
-    var database = firebase.database();
-    //console.log(firebase.auth().currentUser);
-    var userId = firebase.auth().currentUser.uid;
-
-
     var d = new Date();
     var issueDate = (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear();
     var issueTitle = document.getElementById('title').value;
@@ -198,16 +193,23 @@ function addIssue(){
     var issue = {date:issueDate, title:issueTitle, description:issueDiscription, 
         solved:false, project:issueProject};
 
-    var newIssueKey = firebase.database().ref('users/' + userId + '/open').push().key;
-    var updates = {};
-    updates['users/' + userId + '/open/' + newIssueKey] = issue;
-    firebase.database().ref().update(updates, function(error){
-        if (error) {
-            alert('Oops! Something went wrong! Your issue didn\'t add successfully! Please Try Again');
-        } else 
-            uploadFile(newIssueKey, issueFile);
-    });
+    if(rest)
+        addIssueRest(issue);
+    else{
+        var database = firebase.database();
+        //console.log(firebase.auth().currentUser);
+        var userId = firebase.auth().currentUser.uid;
     
+        var newIssueKey = firebase.database().ref('users/' + userId + '/open').push().key;
+        var updates = {};
+        updates['users/' + userId + '/open/' + newIssueKey] = issue;
+        firebase.database().ref().update(updates, function(error){
+            if (error) {
+                alert('Oops! Something went wrong! Your issue didn\'t add successfully! Please Try Again');
+            } else 
+                uploadFile(newIssueKey, issueFile);
+        });
+    }
 }
 
 function uploadFile(newIssueKey, issueFile){

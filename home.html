@@ -52,7 +52,7 @@
         </div>
        
         <div class="navBar">
-            <a href="home.html">
+            <a onclick="homeLink()">
                 <div class="navitem">
                     <img class="Logo" src="/images/Logo.svg" alt="Logo">
                     <div class="navTextHolder">
@@ -63,12 +63,12 @@
 
             <div class="NavTags">
                 <div class="NavTag">
-                    <a href="home.html"></a><img class="NavIcon" src="/images/Icons/home-3.svg" alt="Home_icon">
+                    <a onclick="homeLink()"></a><img class="NavIcon" src="/images/Icons/home-3.svg" alt="Home_icon">
                     <h6 class="NavText Active">Home</h6>
                     </a>
                 </div>
                 <div class="NavTag">
-                    <a onclick="addIssue()"><img class="NavIcon" src="/images/Icons/plus.svg" alt="Add_icon">
+                    <a onclick="addIssueLink()"><img class="NavIcon" src="/images/Icons/plus.svg" alt="Add_icon">
                     <h6 class="NavText">Add Issue</h6>
                     </a>
                 </div>
@@ -87,9 +87,7 @@
             <h1>Home</h1>
             <div>
                 <h2 class="PageName">Open Issues</h2>
-                <form class="addIssueForm" action="./addIssue.html">
-                    <button class="addIssueButton"><span class="ButtonTextWhite">Add Issue</span></button>
-                </form>
+                <button class="addIssueForm addIssueButton" onclick="addIssueLink()"><span class="ButtonTextWhite">Add Issue</span></button>
                 <noscript>
                     <h3 class="Attention">Attention! Your JavaScript is off. We are unable to connect you to your account.</h3>
                 </noscript>
