@@ -32,3 +32,7 @@ function overLayOff(){
     el[0].setAttribute("hidden", true);
     el[1].setAttribute("hidden", true);
 }
+
+function addIssue(){
+    
+}

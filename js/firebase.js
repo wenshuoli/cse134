@@ -83,31 +83,6 @@ function getHomeHistory(){
     
 }
 
-function getHomeHistoryRest(){
-    var xmlhttp = new XMLHttpRequest();
-    var url = "/db/db.json";
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var data  = JSON.parse(this.responseText);
-            extractJson(data);
-        }
-    };
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
-}
-
-function extractJson(data){
-
-    for(var key in data)
-    {
-        if(key!='nextId'){
-            var issueVal= data[key];
-            if(!issueVal.solved)
-                createHomeElement(key, issueVal);
-        }
-    }
-}
-
 function createHomeElement(issueId, issueVal){
     var html = 
     
@@ -369,16 +344,6 @@ function discardEdit(){
 function checkDetail(issueID){
     var issueDetailUrl = './issueDetails.html?issueDetailId=' + issueID;
     window.location.href = issueDetailUrl;
-}
-
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
 function loadEditContent(){
