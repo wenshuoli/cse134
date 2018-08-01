@@ -27,8 +27,10 @@ function extractJson(data, solved){
     {
         if(key!='nextId'){
             var issueVal= data[key];
-            if((!solved && !issueVal.solved) || (solved && issueVal.solved))
+            if (!solved && !issueVal.solved)
                 createHomeElement(key, issueVal);
+            if (solved && issueVal.solved)
+                createSolvedElement(key, issueVal);
         }
     }
 }
