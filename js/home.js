@@ -49,11 +49,20 @@ function homeLink(){
         window.location.href = './home.html';
 }
 
+<<<<<<< HEAD
 function resolvedIssueLink(){
     if(rest)
         window.location.href = './listHis.html?rest=true';
     else
         window.location.href = './listHis.html';
+=======
+function editIssue(issueID){
+    if(rest)
+        var editIssueUrl = './editIssue.html?rest=true&editIssueId=' + issueID;
+    else
+        var editIssueUrl = './editIssue.html?editIssueId=' + issueID;
+    window.location.href = editIssueUrl;
+>>>>>>> b6bd137f19eb3c40557aa520fa84791dd2c23b2e
 }
 
 function getParameterByName(name, url) {
@@ -64,4 +73,10 @@ function getParameterByName(name, url) {
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+function loadEditContentToHtml(issueInfo){
+    document.getElementById('title').value = issueInfo.title;
+    document.getElementById('project').value = issueInfo.project;
+    document.getElementById('description').value = issueInfo.description;
 }

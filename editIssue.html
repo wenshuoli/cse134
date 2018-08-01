@@ -21,6 +21,7 @@
     <script src="js/rest.js"></script>
     <script>
             // Check login status
+<<<<<<< HEAD
             if (rest)
                 loadEditContentRest();
             else {
@@ -28,14 +29,32 @@
                     firebase.auth().onAuthStateChanged(function(user) {
                         // [START_EXCLUDE silent]
                         // [END_EXCLUDE]
+=======
+            rest = getParameterByName('rest');
+            if(rest)
+                loadEditContent();
+            else
+                window.onload = function() {
+                    firebase.auth().onAuthStateChanged(function(user) {
+                // [START_EXCLUDE silent]
+                // [END_EXCLUDE]
+>>>>>>> b6bd137f19eb3c40557aa520fa84791dd2c23b2e
                         if (!firebase.auth().currentUser) {
                             alert('You have been signed out, please log in again!');
                             window.location.href = './index.html';
                         }
+<<<<<<< HEAD
                         loadEditContent();
                     });
                 };
             }             
+=======
+
+                        loadEditContent();
+                    });
+                };
+                
+>>>>>>> b6bd137f19eb3c40557aa520fa84791dd2c23b2e
     </script>
 </head>
 
@@ -83,7 +102,7 @@
             </div>
             <h1 class="v24">Edit Issue</h1>
 
-            <form action="">
+            <form>
                 <h5>TITLE</h5>
                 <p class="v24"><input class="longForm shortForm" type="text" id="title"></p>
                 <h5>PROJECT</h5>
@@ -95,7 +114,7 @@
             </form>
 
             <span class="buttons">
-                <input type="submit" class="EditSaveButton ButtonTextWhite" value="Save" onclick="saveEditIssue()">
+                <input class="EditSaveButton ButtonTextWhite" value="Save" onclick="saveEditIssue()">
                 <form action="home.html" class="EditCancelForm"><button class="EditCancelButton" onclick="discardEdit()"><span class="ButtonTextBlack">Cancel</span></button></form>
             </span>
         </div>

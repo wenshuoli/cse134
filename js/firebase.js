@@ -22,8 +22,11 @@ function initApp() {
 }
 
 function signOut(){
-    if(firebase.auth().currentUser)
-        firebase.auth().signOut();
+    if(rest)
+        window.location.href = './index.html';
+    else
+        if(firebase.auth().currentUser)
+            firebase.auth().signOut();
 }
 
 function checkLoginHome() {
@@ -209,6 +212,7 @@ function addIssue(){
         updates['users/' + userId + '/open/' + newIssueKey] = issue;
         firebase.database().ref().update(updates, function(error){
             if (error) {
+                console.log(userId);
                 alert('Oops! Something went wrong! Your issue didn\'t add successfully! Please Try Again');
             } else 
                 uploadFile(newIssueKey, issueFile);
@@ -254,72 +258,73 @@ function discardAdd(){
 }
 
 function resolveIssue(issueId) {
-    var database = firebase.database();
-    //console.log(firebase.auth().currentUser);
-    var userId = firebase.auth().currentUser.uid;
-    var openIssuesRef = firebase.database().ref('/users/' + userId + '/open/' + issueId);
-
-    //Create variables to store the previous values
-    var prevDate;
-    var prevDescription;
-    var prevProject;
-    var prevTitle;
-    //console.log("ref=" + openIssuesRef);
-    openIssuesRef.on('value', function (snapshot) {
-        //console.log(snapshot.val());
-        prevDate = snapshot.val().date;
-        prevDescription = snapshot.val().description;
-        prevProject = snapshot.val().project;
-        prevTitle = snapshot.val().title;
-        //console.log("prevTitle=" + prevTitle);
-
-        openIssuesRef.set({
-            title: prevTitle,
-            date: prevDate,
-            project: prevProject,
-            solved: true,
-            description: prevDescription
+    if(rest)
+        resolveIssueRest(issueId);
+    else{
+        var database = firebase.database();
+        //console.log(firebase.auth().currentUser);
+        var userId = firebase.auth().currentUser.uid;
+    
+        var openIssuesRef = firebase.database().ref('/users/' + userId + '/open/' + issueId);
+    
+        //Create variables to store the previous values
+        var prevDate;
+        var prevDescription;
+        var prevProject;
+        var prevTitle;
+        //console.log("ref=" + openIssuesRef);
+        openIssuesRef.on('value', function (snapshot) {
+            //console.log(snapshot.val());
+            prevDate = snapshot.val().date;
+            prevDescription = snapshot.val().description;
+            prevProject = snapshot.val().project;
+            prevTitle = snapshot.val().title;
+            //console.log("prevTitle=" + prevTitle);
+    
+            openIssuesRef.set({
+                title: prevTitle,
+                date: prevDate,
+                project: prevProject,
+                solved: true,
+                description: prevDescription
+            });
+    
+            //console.log(snapshot.val());
         });
-
-        //console.log(snapshot.val());
-    });
+    }
     var el = document.getElementsByClassName('overlay');
     el[0].setAttribute("hidden", true);
 }
 
 function deleteIssue(issueId){
-    var storageRef = firebase.storage().ref();
-    var database = firebase.database();
-    //console.log(firebase.auth().currentUser);
-    var userId = firebase.auth().currentUser.uid;
-    var issueRef = firebase.database().ref('/users/' + userId + '/open/' + issueId);
-    issueRef.remove(function(errer){
-        if(errer)
-            alert('Oops! Something went wrong. Please try again!');
-        else{
-            var desertRef = storageRef.child('Issues/' + issueId);
-            desertRef.delete().then(function() {
-                // File deleted successfully
-              }).catch(function(error) {
-                // Uh-oh, an error occurred!
-              });
-        }
-    });
+    if(rest)
+        deleteIssueRest(issueId);
+    else{
+        var storageRef = firebase.storage().ref();
+        var database = firebase.database();
+        //console.log(firebase.auth().currentUser);
+        var userId = firebase.auth().currentUser.uid;
+        var issueRef = firebase.database().ref('/users/' + userId + '/open/' + issueId);
+        issueRef.remove(function(errer){
+            if(errer)
+                alert('Oops! Something went wrong. Please try again!');
+            else{
+                var desertRef = storageRef.child('Issues/' + issueId);
+                desertRef.delete().then(function() {
+                    // File deleted successfully
+                }).catch(function(error) {
+                    // Uh-oh, an error occurred!
+                });
+            }
+        });
+    }
     var el = document.getElementsByClassName('overlay');
     el[1].setAttribute("hidden", true);
 }
 
-function editIssue(issueID){
-    var editIssueUrl = './editIssue.html?editIssueId=' + issueID;
-    window.location.href = editIssueUrl;
-}
-
 function saveEditIssue(){
-    var database = firebase.database();
-    //console.log(firebase.auth().currentUser);
-    var userId = firebase.auth().currentUser.uid;
+   
     var issueId = getParameterByName('editIssueId');
-    var editIssuesRefKey = firebase.database().ref('/users/' + userId + '/open/' + issueId).key;
 
     var d = new Date();
     var newIssueDate = (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear();
@@ -329,18 +334,25 @@ function saveEditIssue(){
     var newIssueFile = document.getElementById('file').files[0];
     var editIssue = {date:newIssueDate, title:newIssueTitle, description:newIssueDescription, 
         solved:false, project:newIssueProject};
-
-    var updates = {};
-    updates['users/' + userId + '/open/' + editIssuesRefKey] = editIssue;
-    firebase.database().ref().update(updates, function(error){
-        if (error) {
-            alert('Oops! Something went wrong! Your issue didn\'t edit successfully! Please Try Again');
-        }  else {
-            uploadFile(issueId, newIssueFile);
-        }
-           
-    });
     
+    if(rest){
+        saveEditIssueRest(issueId, editIssue);
+    }
+    else{
+        var database = firebase.database();
+        //console.log(firebase.auth().currentUser);
+        var userId = firebase.auth().currentUser.uid;
+        var updates = {};
+        updates['users/' + userId + '/open/' + issueId] = editIssue;
+        firebase.database().ref().update(updates, function(error){
+            if (error) {
+                alert('Oops! Something went wrong! Your issue didn\'t edit successfully! Please Try Again');
+            }  else {
+                uploadFile(issueId, newIssueFile);
+            }
+               
+        });
+    }
 }
 
 function discardEdit(){
@@ -353,20 +365,21 @@ function checkDetail(issueID){
 }
 
 function loadEditContent(){
-    var database = firebase.database();
-    //console.log(firebase.auth().currentUser);
-    var userId = firebase.auth().currentUser.uid;
     var issueId = getParameterByName('editIssueId');
-    var openIssuesRef = firebase.database().ref('/users/' + userId + '/open/' + issueId);
-    openIssuesRef.on('value', function(snapshot)
-    {
-        var issueInfo = snapshot.val();
-        document.getElementById('title').value = issueInfo.title;
-        document.getElementById('project').value = issueInfo.project;
-        document.getElementById('description').value = issueInfo.description;
-        console.log(issueInfo);
-    });
-
+    if(rest)
+        loadEditContentRest(issueId)
+    else{
+        var database = firebase.database();
+        //console.log(firebase.auth().currentUser);
+        var userId = firebase.auth().currentUser.uid;
+        var openIssuesRef = firebase.database().ref('/users/' + userId + '/open/' + issueId);
+        openIssuesRef.on('value', function(snapshot)
+        {
+            var issueInfo = snapshot.val();
+            loadEditContentToHtml(issueInfo);
+            console.log(issueInfo);
+        });
+    }
 }
 
 function loadDetailContent(){
