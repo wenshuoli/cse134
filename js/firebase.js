@@ -205,6 +205,7 @@ function addIssue(){
     });
     
 }
+
 function uploadFile(newIssueKey, issueFile){
     var storageRef = firebase.storage().ref();
     if(issueFile){
@@ -303,6 +304,37 @@ function editIssue(issueID){
     window.location.href = editIssueUrl;
 }
 
+function saveEditIssue(){
+    var database = firebase.database();
+    //console.log(firebase.auth().currentUser);
+    var userId = firebase.auth().currentUser.uid;
+    var issueId = getParameterByName('editIssueId');
+    var editIssuesRefKey = firebase.database().ref('/users/' + userId + '/open/' + issueId).key;
+
+    var d = new Date();
+    var newIssueDate = (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear();
+    var newIssueTitle = document.getElementById('title').value;
+    var newIssueProject = document.getElementById('project').value;
+    var newIssueDescription = document.getElementById('description').value;
+    var newIssueFile = document.getElementById('file').files[0];
+    var editIssue = {date:newIssueDate, title:newIssueTitle, description:newIssueDescription, 
+        solved:false, project:newIssueProject};
+
+    var updates = {};
+    updates['users/' + userId + '/open/' + editIssuesRefKey] = editIssue;
+    firebase.database().ref().update(updates, function(error){
+        if (error) {
+            alert('Oops! Something went wrong! Your issue didn\'t edit successfully! Please Try Again');
+        }  else 
+            uploadFile(editIssuesRefKey, newIssueFile);
+    });
+    
+}
+
+function discardEdit(){
+    window.location.href = './home.html';
+}
+
 function checkDetail(issueID){
     var issueDetailUrl = './issueDetails.html?issueDetailId=' + issueID;
     window.location.href = issueDetailUrl;
@@ -327,6 +359,9 @@ function loadEditContent(){
     openIssuesRef.on('value', function(snapshot)
     {
         var issueInfo = snapshot.val();
+        document.getElementById('title').value = issueInfo.title;
+        document.getElementById('project').value = issueInfo.project;
+        document.getElementById('description').value = issueInfo.description;
         console.log(issueInfo);
     });
 
