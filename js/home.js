@@ -1,3 +1,5 @@
+var rest = false;
+
 window.onload = function () {
     var popup = document.getElementById('resolve-btn');
     if (popup) {
