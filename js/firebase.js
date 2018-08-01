@@ -29,18 +29,22 @@ function signOut(){
 function checkLoginHome() {
     // Listening for auth state changes.
     // [START authstatelistener]
-    firebase.auth().onAuthStateChanged(function(user) {
-        // [START_EXCLUDE silent]
-        // [END_EXCLUDE]
-        if (!firebase.auth().currentUser) {
-            alert('You have been signed out, please log in again!');
-            window.location.href = './index.html';
-        }
-        else{
-            getHomeHistory();
-        }
-        // User is not signed in.
-    });
+    var rest = getParameterByName('rest');
+    if(rest)
+        getHomeHistoryRest();
+    else
+        firebase.auth().onAuthStateChanged(function(user) {
+            // [START_EXCLUDE silent]
+            // [END_EXCLUDE]
+            if (!firebase.auth().currentUser) {
+                alert('You have been signed out, please log in again!');
+                window.location.href = './index.html';
+            }
+            else{
+                getHomeHistory();
+            }
+            // User is not signed in.
+        });
 }
 
 function deleteResidual() {
@@ -77,6 +81,31 @@ function getHomeHistory(){
         });
     });
     
+}
+
+function getHomeHistoryRest(){
+    var xmlhttp = new XMLHttpRequest();
+    var url = "/db/db.json";
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var data  = JSON.parse(this.responseText);
+            extractJson(data);
+        }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+}
+
+function extractJson(data){
+
+    for(var key in data)
+    {
+        if(key!='nextId'){
+            var issueVal= data[key];
+            if(!issueVal.solved)
+                createHomeElement(key, issueVal);
+        }
+    }
 }
 
 function createHomeElement(issueId, issueVal){
@@ -325,8 +354,10 @@ function saveEditIssue(){
     firebase.database().ref().update(updates, function(error){
         if (error) {
             alert('Oops! Something went wrong! Your issue didn\'t edit successfully! Please Try Again');
-        }  else 
-            uploadFile(editIssuesRefKey, newIssueFile);
+        }  else {
+            uploadFile(issueId, newIssueFile);
+        }
+           
     });
     
 }

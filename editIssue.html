@@ -15,6 +15,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-storage.js"></script>
     <script src="js/home.js"></script>
     <script src="js/firebase.js"></script>
     <script>
@@ -92,7 +93,7 @@
             </form>
 
             <span class="buttons">
-                <a href="home.html" onclick="saveEditIssue()"><input type="submit" class="EditSaveButton ButtonTextWhite" value="Save"></a>
+                <input type="submit" class="EditSaveButton ButtonTextWhite" value="Save" onclick="saveEditIssue()">
                 <form action="home.html" class="EditCancelForm"><button class="EditCancelButton" onclick="discardEdit()"><span class="ButtonTextBlack">Cancel</span></button></form>
             </span>
         </div>
