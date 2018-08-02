@@ -254,7 +254,10 @@ function uploadFile(newIssueKey, issueFile){
 }
 
 function discardAdd(){
-    window.location.href = './home.html';
+    if(rest)
+        window.location.href = './home.html?rest=true';
+    else
+        window.location.href = './home.html';
 }
 
 function resolveIssue(issueId) {
@@ -356,7 +359,10 @@ function saveEditIssue(){
 }
 
 function discardEdit(){
-    window.location.href = './home.html';
+    if(rest)
+        window.location.href = './home.html?rest=true';
+    else
+        window.location.href = './home.html';
 }
 
 function loadEditContent(){
