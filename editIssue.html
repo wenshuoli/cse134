@@ -22,20 +22,20 @@
     <script>
             // Check login status
             rest = getParameterByName('rest');
-                window.onload = function() {
-                    if(rest)
-                        loadEditContent();
-                    else
-                    firebase.auth().onAuthStateChanged(function(user) {
-                        // [START_EXCLUDE silent]
-                        // [END_EXCLUDE]
-                        if (!firebase.auth().currentUser) {
-                            alert('You have been signed out, please log in again!');
-                            window.location.href = './index.html';
-                        }
-                        loadEditContent();
-                    });
-                };        
+            window.onload = function() {
+                if(rest)
+                    loadEditContent();
+                else
+                firebase.auth().onAuthStateChanged(function(user) {
+                    // [START_EXCLUDE silent]
+                    // [END_EXCLUDE]
+                    if (!firebase.auth().currentUser) {
+                        alert('You have been signed out, please log in again!');
+                        window.location.href = './index.html';
+                    }
+                    loadEditContent();
+                });
+            };        
     </script>
 </head>
 
@@ -76,7 +76,7 @@
 
         <div class="mainContent ">
             <div class="NavTag">
-                    <a href="home.html">
+                    <a onclick="homeLink()">
                     <img class="NavIcon" id="backarrow" src="/images/Icons/back_arrow.svg" alt="Home_icon">
                     <h3>Home</h3>
                     </a>
@@ -96,7 +96,7 @@
 
             <span class="buttons">
                 <input class="EditSaveButton ButtonTextWhite" value="Save" onclick="saveEditIssue()">
-                <form action="home.html" class="EditCancelForm"><button class="EditCancelButton" onclick="discardEdit()"><span class="ButtonTextBlack">Cancel</span></button></form>
+                <button class="EditCancelForm EditCancelButton" onclick="discardEdit()"><span class="ButtonTextBlack">Cancel</span></button>
             </span>
         </div>
 
