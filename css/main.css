@@ -157,8 +157,9 @@ a{
     height: 100%;
     display: grid;
     /* grid-template-columns:1fr 1fr 1fr;*/
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 1em;
+    padding: 16px;
     /* grid-auto-rows:100px; */
     grid-auto-rows: minmax(80px, auto);
 }
@@ -265,6 +266,18 @@ a{
     color:#555555;
 }
 
+/*
+.aboutdiv{
+    width:100%;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+*/
+
+.aboutdiv > img{
+    width:100%;
+}
+
 .longForm{
     width: 100%;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -336,6 +349,7 @@ a{
     background-color: #5680e9;
     border:none;
     cursor:pointer;
+    margin-bottom: 16px;
 }
 
 .normalButton{
@@ -346,6 +360,7 @@ a{
     border: solid 1px #999999;
     background-color: #ffffff;
     cursor: pointer;
+    margin-bottom: 16px;
 }
 
 .footerMain{
@@ -374,7 +389,7 @@ a{
     margin-top: 64px;
 }
 #about-header{
-    margin-top: 80px;
+    margin-top: 16px;
 }
 
 
@@ -395,7 +410,7 @@ a{
     }
 
     .login-bg{
-        visibility: hidden;
+        display: none;
     }
     
     #login{

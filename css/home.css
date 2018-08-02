@@ -363,16 +363,19 @@ a{
 
     .Logout{
         font-size:16px;
+        margin-top: 24px;
     }
 
     .EditSaveButton{
         width: 136px;
         height: 48px;
+        margin-bottom: 16px;
     }
     
     .EditCancelButton{
         width: 136px;
         height: 48px;
+        margin-bottom: 16px;
     }
 
     .EditCancelForm{
