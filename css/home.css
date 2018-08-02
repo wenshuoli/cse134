@@ -2,6 +2,10 @@
     margin-top: 0;
     margin-bottom: 0;
 }
+
+a{
+    cursor: pointer;
+}
 /*Grid Layout*/
 .mainContainer {
     height: 100%;
@@ -61,6 +65,7 @@
     display: inline-block;
     width:80px;
     vertical-align: middle;
+    cursor: pointer;
 }
 .NavTag{
     margin-bottom:2rem;
@@ -71,6 +76,7 @@
     height:32px;
     margin-right:32px;
     vertical-align: middle;
+    cursor: pointer;
 }
 
 .Logout{
@@ -78,6 +84,7 @@
     width: 100%;
     text-align: center;
     color: #5680e9;
+    cursor: pointer;
 }
 
 /*Elements in the main body*/
@@ -184,6 +191,7 @@
     height:32px;
     display:inline-block;
     margin-left:32px;
+    cursor: pointer;
 }
 
 .overlay{
@@ -223,6 +231,7 @@
     font-weight: 700;
     font-size: 1rem;
     color: #D0021B;
+    cursor: pointer;
 }
 
 .lowImpact_btn{
@@ -235,6 +244,7 @@
     font-weight: 700;
     font-size: 1rem;
     color: #555555;
+    cursor: pointer;
 }
 
 .Attention{
@@ -267,12 +277,15 @@
         max-width: none;
     }
     .NavTag{
-        margin-bottom:8px;
+        margin-bottom:16px;
         float:left;
+        width:100%;
+        margin-left:16px;
     }
     .NavTags{
         margin-left:1rem;
         margin-top:16px;
+        width: 100%;
     }
     .NavIcon{
         width:16px;
@@ -282,12 +295,13 @@
     }
     .NavText{
         width:80px;
-        font-size:12px;
+        font-size:18px;
     }
 
     .Logout{
-        margin-top:0;
+        margin-top:16px;
         margin-bottom: 16px;
+        
     }
 
     /*Elements in Main body in Mobile*/
@@ -331,7 +345,7 @@
     }
 
     .addIssueButton{
-        width: 72px;
+        width: 120px;
         height: 40px;
     }
     
