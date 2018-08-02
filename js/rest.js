@@ -54,7 +54,6 @@ function resolveIssueRest(issueId){
     var xmlhttp = new XMLHttpRequest();
     var url = 'https://cse134-230c9.firebaseio.com/rest/' + issueId + '/solved.json';
     xmlhttp.open("PUT", url, true);
-    v
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
             var json = JSON.parse(xmlhttp.responseText);
@@ -106,4 +105,17 @@ function saveEditIssueRest(issueId, editIssue){
     xmlhttp.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
     var data = JSON.stringify(editIssue);
     xmlhttp.send(data);
+}
+
+function loadDetailContentRest(issueId){
+    var xmlhttp = new XMLHttpRequest();
+    var url = 'https://cse134-230c9.firebaseio.com/rest/' + issueId + '.json';
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var data  = JSON.parse(this.responseText);
+            loadDetailContentToHtml(data);
+        }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
 }

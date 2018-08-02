@@ -21,21 +21,22 @@
     <script src="js/rest.js"></script>
     <script>
         // Initialize Firebase
-        if (rest)
-            loadDetailContentRest();
-        else {
+        rest = getParameterByName('rest');
+       
             window.onload = function() {
-                firebase.auth().onAuthStateChanged(function(user) {
-                    // [START_EXCLUDE silent]
-                    // [END_EXCLUDE]
-                    if (!firebase.auth().currentUser) {
-                        alert('You have been signed out, please log in again!');
-                        window.location.href = './index.html';
-                    }
+                if (rest)
                     loadDetailContent();
-                });
+                else 
+                    firebase.auth().onAuthStateChanged(function(user) {
+                        // [START_EXCLUDE silent]
+                        // [END_EXCLUDE]
+                        if (!firebase.auth().currentUser) {
+                            alert('You have been signed out, please log in again!');
+                            window.location.href = './index.html';
+                        }
+                        loadDetailContent();
+                    });
             };   
-        }
     </script>   
 </head>
 

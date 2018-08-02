@@ -5,7 +5,7 @@ if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js');
     });
-}
+  }
 
 window.onload = function () {
     var popup = document.getElementById('resolve-btn');
@@ -56,20 +56,20 @@ function homeLink(){
         window.location.href = './home.html';
 }
 
-<<<<<<< HEAD
 function resolvedIssueLink(){
     if(rest)
         window.location.href = './listHis.html?rest=true';
     else
         window.location.href = './listHis.html';
-=======
+
+}
+
 function editIssue(issueID){
     if(rest)
         var editIssueUrl = './editIssue.html?rest=true&editIssueId=' + issueID;
     else
         var editIssueUrl = './editIssue.html?editIssueId=' + issueID;
     window.location.href = editIssueUrl;
->>>>>>> b6bd137f19eb3c40557aa520fa84791dd2c23b2e
 }
 
 function getParameterByName(name, url) {
@@ -86,4 +86,19 @@ function loadEditContentToHtml(issueInfo){
     document.getElementById('title').value = issueInfo.title;
     document.getElementById('project').value = issueInfo.project;
     document.getElementById('description').value = issueInfo.description;
+}
+
+function loadDetailContentToHtml(issueInfo){
+    document.getElementById('title').innerHTML = issueInfo.title;
+    document.getElementById('project').innerHTML = issueInfo.project;
+    document.getElementById('description').innerHTML = issueInfo.description;
+    document.getElementById('date').innerHTML = issueInfo.date;
+}
+
+function checkDetail(issueID){
+    if(rest)
+        var issueDetailUrl = './issueDetails.html?rest=true&issueDetailId=' + issueID;
+    else
+        var issueDetailUrl = './issueDetails.html?issueDetailId=' + issueID;
+    window.location.href = issueDetailUrl;
 }

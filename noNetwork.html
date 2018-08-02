@@ -1,4 +1,4 @@
-<!-- This is the edit issue page -->
+<!-- This is the issue details page -->
 
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit issue page</title>
+    <title>Lost Connection</title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/home.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
@@ -19,24 +19,6 @@
     <script src="js/home.js"></script>
     <script src="js/firebase.js"></script>
     <script src="js/rest.js"></script>
-    <script>
-            // Check login status
-            rest = getParameterByName('rest');
-                window.onload = function() {
-                    if(rest)
-                        loadEditContent();
-                    else
-                    firebase.auth().onAuthStateChanged(function(user) {
-                        // [START_EXCLUDE silent]
-                        // [END_EXCLUDE]
-                        if (!firebase.auth().currentUser) {
-                            alert('You have been signed out, please log in again!');
-                            window.location.href = './index.html';
-                        }
-                        loadEditContent();
-                    });
-                };        
-    </script>
 </head>
 
 <body>
@@ -69,35 +51,12 @@
                 </div>
             </div>
 
-            
-            <h4 class="Logout v64" onclick="signOut()">Logout</h4>
-            
+            <h4 class="Logout v64" onclick="signOut()" >Logout</h4>
         </div>
 
         <div class="mainContent ">
-            <div class="NavTag">
-                    <a href="home.html">
-                    <img class="NavIcon" id="backarrow" src="/images/Icons/back_arrow.svg" alt="Home_icon">
-                    <h3>Home</h3>
-                    </a>
-            </div>
-            <h1 class="v24">Edit Issue</h1>
-
-            <form>
-                <h5>TITLE</h5>
-                <p class="v24"><input class="longForm shortForm" type="text" id="title"></p>
-                <h5>PROJECT</h5>
-                <p class="v24"><input class="longForm shortForm" type="text" id="project"></p>
-                <h5>DESCRIPTION</h5>
-                <p class="v48"><textarea class="description" id="description"></textarea></p>
-                <h5>UPLOAD ADDITIONAL FILE</h5>
-                <p class="v48"><input type="file" name="title" id="file"></p>
-            </form>
-
-            <span class="buttons">
-                <input class="EditSaveButton ButtonTextWhite" value="Save" onclick="saveEditIssue()">
-                <form action="home.html" class="EditCancelForm"><button class="EditCancelButton" onclick="discardEdit()"><span class="ButtonTextBlack">Cancel</span></button></form>
-            </span>
+            <h1 class="v16" id="title" > We just lost connection, please try again later!</h1>
+    
         </div>
 
     </div>

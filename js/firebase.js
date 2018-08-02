@@ -359,11 +359,6 @@ function discardEdit(){
     window.location.href = './home.html';
 }
 
-function checkDetail(issueID){
-    var issueDetailUrl = './issueDetails.html?issueDetailId=' + issueID;
-    window.location.href = issueDetailUrl;
-}
-
 function loadEditContent(){
     var issueId = getParameterByName('editIssueId');
     if(rest)
@@ -383,17 +378,19 @@ function loadEditContent(){
 }
 
 function loadDetailContent(){
-    var userId = firebase.auth().currentUser.uid;
     var issueId = getParameterByName('issueDetailId');
-    var issueRef = firebase.database().ref('/users/' + userId + '/open/' + issueId);
-    issueRef.on('value', function(snapshot)
-    {
-        var issue = snapshot.val();
-        document.getElementById('title').innerHTML = issue.title;
-        document.getElementById('project').innerHTML = issue.project;
-        document.getElementById('description').innerHTML = issue.description;
-        document.getElementById('date').innerHTML = issue.date;
-    });
+    
+    if(rest)
+        loadDetailContentRest(issueId)
+    else{
+        var userId = firebase.auth().currentUser.uid;
+        var issueRef = firebase.database().ref('/users/' + userId + '/open/' + issueId);
+        issueRef.on('value', function(snapshot)
+        {
+            var issue = snapshot.val();
+            loadDetailContentToHtml(issue);
+        });
+    }
 
 }
 
