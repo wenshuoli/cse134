@@ -136,6 +136,10 @@ a{
     border: solid 1px #999999;
 }
 
+.clickable{
+    cursor: pointer;
+}
+
 .IssueItem{
     margin-left: 8px;
 }

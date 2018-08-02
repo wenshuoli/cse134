@@ -89,7 +89,7 @@ function getHomeHistory(){
 function createHomeElement(issueId, issueVal){
     var html = 
     
-    '<p class="IssueItem ' + issueId + '"onclick="checkDetail(\'' + issueId + '\')" >' + issueVal.title + '</p>' + 
+    '<p class="IssueItem clickable ' + issueId + '"onclick="checkDetail(\'' + issueId + '\')" >' + issueVal.title + '</p>' + 
     '<p class="IssueItem ' + issueId + '">' + issueVal.project + '</p>' + 
     '<p class="IssueItem '+ issueId+ '">' + issueVal.date + '</p>' + 
     '<div class="FunctionIcons ' + issueId + '">' + 
