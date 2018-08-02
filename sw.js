@@ -5,7 +5,7 @@ if (workbox) {
   } else {
     console.log(`Boo! Workbox didn't load 😬`);
   }
-
+var offlineUrl = '/noNetwork.html'
 workbox.routing.registerRoute(
     /\.(?:js|css)$/,
     workbox.strategies.staleWhileRevalidate({
@@ -32,8 +32,7 @@ workbox.routing.registerRoute(
   );
 
   workbox.routing.registerRoute(
-    /index\.html/,
-    // https://developers.google.com/web/tools/workbox/reference-docs/latest/workbox.strategies
+    /\.html/, 
     workbox.strategies.networkFirst({
       cacheName: 'workbox:html',
     })
