@@ -252,7 +252,7 @@ a{
     margin-bottom: 80px;
 }
 .h80{
-    margin-left: 80px;
+    margin-left: 50px;
 }
 
 
@@ -388,6 +388,10 @@ a{
         grid-gap: 1em;
         /* grid-auto-rows:100px; */
         grid-auto-rows: minmax(80px, auto);
+    }
+    
+    input[type=checkbox] {
+      transform: scale(2);
     }
 
     .login-bg{
