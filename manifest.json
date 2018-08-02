@@ -1,0 +1,21 @@
+{
+    "short_name": "Debuggie",
+    "name": "Debuggie",
+    "start_url": "/index.html",
+    "background_color": "#3367D6",
+    "display": "standalone",
+    "scope": "/",
+    "icons": [
+        {
+          "src": "/images/Icon-192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        },
+        {
+          "src": "/images/Icon-192.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ],
+    "theme_color": "#ffffff"
+  }
